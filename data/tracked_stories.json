@@ -1,0 +1,36 @@
+{
+  "stories": [
+    {
+      "id": "75749644-ae9d-4b45-9083-00e65f371cb4",
+      "title": "ABD-İran Hattında Tırmanan Gerilim ve Trump'ın Askeri-Siyasi Hamleleri",
+      "context": "ABD yönetiminin İran'a yönelik sertleşen söylemleri ve bölgedeki askeri hareketlilik, Hürmüz Boğazı güvenliği, küresel petrol piyasaları ve Orta Doğu'daki jeopolitik dengeler üzerinde doğrudan risk oluşturmaktadır.",
+      "status": "active",
+      "timeline": [
+        {
+          "date": "2026-10-06",
+          "summary": "ABD Başkanı Trump, İran ile ilgili 'başladıkları işi bitirmeleri gerektiğini' açıkladı; eş zamanlı olarak Yemen'deki Husilerin Suudi Arabistan'a fırlattığı balistik füze engellendi."
+        },
+        {
+          "date": "2026-10-06",
+          "summary": "ABD Başkanı Donald Trump, İran'da başladıkları işi bitirmeleri gerektiğini belirterek bunu 'nazik mi yoksa kaba' bir yolla mı yapacaklarını düşündüklerini ifade etti; Suudi Arabistan ise Husilerin füze saldırısının engellendiğini duyurdu."
+        }
+      ]
+    },
+    {
+      "id": "e858774d-0cda-4e33-9e18-d5ca1593790c",
+      "title": "Fransa'da Kitlesel Öğrenci Eylemleri ve Toplumsal Gerilim",
+      "context": "Fransa genelinde lise öğrencilerinin öncülüğünde başlayan ve yüz binlerce kişinin katıldığı protestolar, polisle çatışmaların artması ve iç siyasette baskının büyümesi nedeniyle hükümet üzerinde kritik bir kriz yaratmaktadır.",
+      "status": "active",
+      "timeline": [
+        {
+          "date": "2026-10-06",
+          "summary": "Fransa çapında yüz binlerce lise öğrencisi sokaklara indi; güvenlik güçleri göstericilere göz yaşartıcı gazla müdahale etti."
+        },
+        {
+          "date": "2026-10-06",
+          "summary": "Fransa genelindeki lise öğrenci eylemlerinde yüz binlerce kişi sokaklara dökülürken, polisin göstericilere göz yaşartıcı gazla müdahale ettiği ve çatışmaların sürdüğü bildirildi."
+        }
+      ]
+    }
+  ]
+}

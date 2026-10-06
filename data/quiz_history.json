@@ -1,0 +1,58 @@
+{
+  "quizzes": [
+    {
+      "questions": [
+        {
+          "question": "Aşağıdakilerden hangisi Kira Sertifikası (Sukuk) için doğru bir tanimdir?",
+          "options": [
+            "A) Sadece şirketlerin hisse senetlerini alıp satarak elde ettiği kâr payıdır.",
+            "B) Faiz yerine, bir varlığın mülkiyetinden elde edilen kira gelirinin paylaştırılmasına dayanan faizsiz borçlanma senedidir.",
+            "C) Devletin karşılıksız olarak vatandaşlarına dağıttığı borç paradır.",
+            "D) Bankaya yatırılan vadeli mevduatların sabit faiz getirisidir."
+          ],
+          "correct_answer": "B) Faiz yerine, bir varlığın mülkiyetinden elde edilen kira gelirinin paylaştırılmasına dayanan faizsiz borçlanma senedidir.",
+          "explanation": "Kira sertifikası (sukuk), faiz içermeyen ve yatırımcısına varlık mülkiyetinden elde edilen düzenli kira geliri ödemesi sağlayan bir faizsiz finansman aracıdır."
+        },
+        {
+          "question": "Bir ülkenin başka ülkelere sattığı malların değerinin, o ülkelerden satın aldığı malların değerinden fazla olması durumu aşağıdakilerden hangisiyle ifade edilir?",
+          "options": [
+            "A) Bütçe açığı",
+            "B) Enflasyonist baskı",
+            "C) Dış ticaret fazlası",
+            "D) Nominal faiz oranı"
+          ],
+          "correct_answer": "C) Dış ticaret fazlası",
+          "explanation": "İhracatın (satılan mallar) ithalattan (alınan mallar) fazla olması ülkeye net döviz girişini sağlar ve dış ticaret fazlası olarak adlandırılır."
+        }
+      ],
+      "date": "2026-10-07T01:06:01.701931+03:00"
+    },
+    {
+      "questions": [
+        {
+          "question": "Aşağıdakilerden hangisi Tahvil Faizi düştüğünde piyasada gözlemlenmesi beklenen durumlardan biridir?",
+          "options": [
+            "A) Kredi çekmek ve yatırım yapmak pahalılaşır.",
+            "B) Hisse senetleri değer kazanma eğilimine girer.",
+            "C) Şirketlerin borçlanma maliyetleri keskin bir şekilde artar.",
+            "D) Devletlerin borçlanma senetlerine olan talep tamamen sıfırlanır."
+          ],
+          "correct_answer": "B) Hisse senetleri değer kazanma eğilimine girer.",
+          "explanation": "Tahvil faizleri düştüğünde kredi çekmek ve yatırım yapmak ucuzlar, bu durum ekonomik aktiviteyi destekleyerek hisse senetlerinin değer kazanma eğilimine girmesine zemin hazırlar."
+        },
+        {
+          "question": "Coğrafi konumlar nedeniyle ortaya çıkan siyasi, askeri veya ekonomik güç mücadelelerinin küresel piyasalarda belirsizlik yaratması durumu aşağıdakilerden hangisiyle tanımlanır?",
+          "options": [
+            "A) Dış ticaret fazlası",
+            "B) Mevduat getirisi",
+            "C) Jeopolitik risk",
+            "D) Varlık kiralama"
+          ],
+          "correct_answer": "C) Jeopolitik risk",
+          "explanation": "Jeopolitik risk, ülkelerin coğrafi konumlarından ve siyasi/askeri güç mücadelelerinden kaynaklanan ve piyasalarda belirsizlik oluşturan risk faktörlerini ifade eder."
+        }
+      ],
+      "date": "2026-10-07T01:10:22.224304+03:00"
+    }
+  ]
+}

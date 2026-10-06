@@ -1,0 +1,77 @@
+name: "📰 Günlük Haber Bülteni"
+
+on:
+  schedule:
+    # Sabah raporu: 08:00 Türkiye saati (UTC+3) = 05:00 UTC
+    - cron: '0 5 * * *'
+    # Akşam raporu: 20:00 Türkiye saati (UTC+3) = 17:00 UTC
+    - cron: '0 17 * * *'
+
+  # Manuel tetikleme (test için)
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Rapor modu'
+        required: true
+        default: 'morning'
+        type: choice
+        options:
+          - morning
+          - evening
+
+jobs:
+  send-report:
+    runs-on: ubuntu-latest
+
+    # Güncellenen JSON dosyalarını commit edebilmek için
+    permissions:
+      contents: write
+
+    steps:
+      # 1. Kodu çek
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # 2. Python kur
+      - name: 🐍 Python kurulumu
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      # 3. Bağımlılıkları yükle
+      - name: 📦 Bağımlılıkları yükle
+        run: pip install -r requirements.txt
+
+      # 4. Rapor modunu belirle
+      - name: 🕐 Rapor modunu belirle
+        id: mode
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "mode=${{ github.event.inputs.mode }}" >> $GITHUB_OUTPUT
+          elif [ "$(date -u +%H)" -lt 12 ]; then
+            echo "mode=morning" >> $GITHUB_OUTPUT
+          else
+            echo "mode=evening" >> $GITHUB_OUTPUT
+          fi
+
+      # 5. Raporu çalıştır
+      - name: 📰 Rapor oluştur ve gönder
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+        run: python -m src.main --mode ${{ steps.mode.outputs.mode }}
+
+      # 6. Güncellenen data dosyalarını commit et (story tracking, quiz history vs.)
+      - name: 💾 Veri dosyalarını güncelle
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data/
+          # Değişiklik varsa commit et, yoksa atla
+          git diff --staged --quiet || git commit -m "📊 Veri güncelleme: $(date -u +%Y-%m-%d_%H:%M) UTC"
+          git push

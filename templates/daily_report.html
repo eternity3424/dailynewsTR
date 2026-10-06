@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📰 Günlük Haber & Finansal Okuryazarlık Bülteni</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f1f5f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #1e293b; line-height: 1.6;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width: 680px; margin: 20px auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.08); border: 1px solid #e2e8f0;">
+        <!-- Header -->
+        <tr>
+            <td style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 35px 25px; text-align: center;">
+                <span style="background-color: #3b82f6; color: #ffffff; font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 12px;">Günlük Bülten & Finans Rehberi</span>
+                <h1 style="color: #ffffff; margin: 0; font-size: 26px; font-weight: 800; letter-spacing: -0.5px;">📰 Gündem & Finansal Okuryazarlık</h1>
+                <p style="color: #94a3b8; margin: 10px 0 0 0; font-size: 14px; font-weight: 500;">{{ report_data.date }} • <span style="color: #60a5fa;">{{ report_data.time_label }} Bülteni</span></p>
+            </td>
+        </tr>
+
+        <!-- Market Summary -->
+        {% if report_data.market_data %}
+        <tr>
+            <td style="padding: 24px 20px 10px 20px; background-color: #f8fafc; border-bottom: 1px solid #e2e8f0;">
+                <div style="font-size: 13px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">📊 Piyasa Özeti (Anlık Fiyat & Değişim)</div>
+                <table width="100%" cellpadding="8" cellspacing="0" border="0" style="background-color: #ffffff; border-radius: 8px; border: 1px solid #e2e8f0;">
+                    <tr>
+                        {% for item in report_data.market_data %}
+                        <td align="center" style="padding: 10px 6px; border-right: {% if not loop.last %}1px solid #f1f5f9{% else %}none{% endif %};">
+                            <span style="font-size: 12px; color: #64748b; display: block; font-weight: 600;">{{ item.name }}</span>
+                            <span style="font-size: 15px; font-weight: 800; color: #0f172a; display: block; margin: 3px 0;">{{ item.current_price }}</span>
+                            <span style="font-size: 12px; font-weight: 700; color: {% if item.direction == 'up' %}#16a34a{% elif item.direction == 'down' %}#dc2626{% else %}#64748b{% endif %};">
+                                {% if item.direction == 'up' %}▲ +{% elif item.direction == 'down' %}▼ {% else %}▬ {% endif %}{{ item.change_percent }}%
+                            </span>
+                        </td>
+                        {% if loop.index == 4 %}</tr><tr>{% endif %}
+                        {% endfor %}
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        {% endif %}
+
+        <!-- Headline News -->
+        {% if report_data.summary and report_data.summary.headline_news %}
+        <tr>
+            <td style="padding: 25px 20px; border-bottom: 1px solid #e2e8f0;">
+                <div style="display: inline-block; background-color: #fef08a; color: #854d0e; font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 6px; text-transform: uppercase; margin-bottom: 10px;">⭐ Günün Manşeti</div>
+                <h2 style="margin: 0 0 12px 0; font-size: 20px; color: #0f172a; line-height: 1.4; font-weight: 800;">{{ report_data.summary.headline_news.title }}</h2>
+                <p style="font-size: 15px; line-height: 1.6; color: #334155; margin: 0 0 16px 0;">{{ report_data.summary.headline_news.summary }}</p>
+                
+                <!-- Neden Önemli Box -->
+                <div style="background-color: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 14px; border-radius: 0 6px 6px 0; margin-bottom: 12px;">
+                    <strong style="font-size: 13px; color: #1d4ed8; display: block; margin-bottom: 4px;">💡 Bu Gelişme Neden Önemli?</strong>
+                    <span style="font-size: 14px; color: #1e3a8a; line-height: 1.5;">{{ report_data.summary.headline_news.why_important }}</span>
+                </div>
+
+                <!-- Terim Açıklaması Box -->
+                {% if report_data.summary.headline_news.term_explanation %}
+                <div style="background-color: #fefce8; border-left: 4px solid #eab308; padding: 12px 14px; border-radius: 0 6px 6px 0; margin-bottom: 12px;">
+                    {% if report_data.summary.headline_news.term_explanation is mapping %}
+                    <strong style="font-size: 13px; color: #a16207; display: block; margin-bottom: 4px;">📖 Finansal Terim: {{ report_data.summary.headline_news.term_explanation.term }}</strong>
+                    <span style="font-size: 14px; color: #713f12; line-height: 1.5;">{{ report_data.summary.headline_news.term_explanation.explanation }}</span>
+                    {% else %}
+                    <strong style="font-size: 13px; color: #a16207; display: block; margin-bottom: 4px;">📖 Finansal Terim Açıklaması</strong>
+                    <span style="font-size: 14px; color: #713f12; line-height: 1.5;">{{ report_data.summary.headline_news.term_explanation }}</span>
+                    {% endif %}
+                </div>
+                {% endif %}
+
+                <!-- Tarihsel Bağlam -->
+                {% if report_data.summary.headline_news.historical_context %}
+                <div style="background-color: #f8fafc; border-left: 4px solid #94a3b8; padding: 10px 14px; border-radius: 0 6px 6px 0; margin-bottom: 12px;">
+                    <strong style="font-size: 13px; color: #475569; display: block; margin-bottom: 2px;">📈 Tarihsel Bağlam & Geçmiş:</strong>
+                    <span style="font-size: 13px; color: #334155;">{{ report_data.summary.headline_news.historical_context }}</span>
+                </div>
+                {% endif %}
+
+                <!-- Kaynaklar -->
+                {% if report_data.summary.headline_news.sources %}
+                <div style="font-size: 12px; color: #64748b; margin-top: 10px;">
+                    📎 <strong>Haber Kaynağı:</strong> 
+                    {% for source in report_data.summary.headline_news.sources %}
+                        <a href="{{ source.url }}" target="_blank" style="color: #2563eb; text-decoration: underline;">{{ source.name }}</a>{% if not loop.last %} • {% endif %}
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </td>
+        </tr>
+        {% endif %}
+
+        <!-- Ekonomi -->
+        {% if report_data.summary and report_data.summary.categorized_news and report_data.summary.categorized_news.ekonomi %}
+        <tr>
+            <td style="padding: 25px 20px; border-bottom: 1px solid #e2e8f0;">
+                <div style="border-bottom: 2px solid #f97316; padding-bottom: 8px; margin-bottom: 18px;">
+                    <h3 style="margin: 0; font-size: 18px; color: #ea580c; font-weight: 800;">💰 EKONOMİ & PİYASALAR</h3>
+                </div>
+                {% for news in report_data.summary.categorized_news.ekonomi %}
+                <div style="background-color: #fffaf5; border: 1px solid #ffedd5; border-left: 4px solid #f97316; border-radius: 6px; padding: 14px 16px; margin-bottom: 14px;">
+                    <h4 style="margin: 0 0 8px 0; font-size: 16px; color: #9a3412; font-weight: 700;">{{ news.title }}</h4>
+                    <p style="font-size: 14px; line-height: 1.6; color: #334155; margin: 0 0 10px 0;">{{ news.summary }}</p>
+                    <div style="background-color: #ffffff; padding: 8px 12px; border-radius: 4px; font-size: 13px; color: #7c2d12; margin-bottom: 8px; border: 1px dashed #fed7aa;">
+                        <strong>💡 Ne Anlama Geliyor?</strong> {{ news.why_important }}
+                    </div>
+                    {% if news.sources %}
+                    <div style="font-size: 12px; color: #94a3b8;">
+                        📎 Kaynak: 
+                        {% for source in news.sources %}
+                            <a href="{{ source.url }}" target="_blank" style="color: #ea580c; text-decoration: underline;">{{ source.name }}</a>{% if not loop.last %} • {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </td>
+        </tr>
+        {% endif %}
+
+        <!-- Siyaset -->
+        {% if report_data.summary and report_data.summary.categorized_news and report_data.summary.categorized_news.siyaset %}
+        <tr>
+            <td style="padding: 25px 20px; border-bottom: 1px solid #e2e8f0;">
+                <div style="border-bottom: 2px solid #ef4444; padding-bottom: 8px; margin-bottom: 18px;">
+                    <h3 style="margin: 0; font-size: 18px; color: #dc2626; font-weight: 800;">🏛 SİYASET GÜNDEMİ</h3>
+                </div>
+                {% for news in report_data.summary.categorized_news.siyaset %}
+                <div style="background-color: #fef2f2; border: 1px solid #fee2e2; border-left: 4px solid #ef4444; border-radius: 6px; padding: 14px 16px; margin-bottom: 14px;">
+                    <h4 style="margin: 0 0 8px 0; font-size: 16px; color: #991b1b; font-weight: 700;">{{ news.title }}</h4>
+                    <p style="font-size: 14px; line-height: 1.6; color: #334155; margin: 0 0 10px 0;">{{ news.summary }}</p>
+                    <div style="background-color: #ffffff; padding: 8px 12px; border-radius: 4px; font-size: 13px; color: #7f1d1d; margin-bottom: 8px; border: 1px dashed #fca5a5;">
+                        <strong>💡 Etkisi:</strong> {{ news.why_important }}
+                    </div>
+                    {% if news.sources %}
+                    <div style="font-size: 12px; color: #94a3b8;">
+                        📎 Kaynak: 
+                        {% for source in news.sources %}
+                            <a href="{{ source.url }}" target="_blank" style="color: #dc2626; text-decoration: underline;">{{ source.name }}</a>{% if not loop.last %} • {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </td>
+        </tr>
+        {% endif %}
+
+        <!-- Dünya -->
+        {% if report_data.summary and report_data.summary.categorized_news and report_data.summary.categorized_news.dunya %}
+        <tr>
+            <td style="padding: 25px 20px; border-bottom: 1px solid #e2e8f0;">
+                <div style="border-bottom: 2px solid #3b82f6; padding-bottom: 8px; margin-bottom: 18px;">
+                    <h3 style="margin: 0; font-size: 18px; color: #2563eb; font-weight: 800;">🌍 DÜNYA & JEOPOLİTİK</h3>
+                </div>
+                {% for news in report_data.summary.categorized_news.dunya %}
+                <div style="background-color: #f0f9ff; border: 1px solid #e0f2fe; border-left: 4px solid #3b82f6; border-radius: 6px; padding: 14px 16px; margin-bottom: 14px;">
+                    <h4 style="margin: 0 0 8px 0; font-size: 16px; color: #075985; font-weight: 700;">{{ news.title }}</h4>
+                    <p style="font-size: 14px; line-height: 1.6; color: #334155; margin: 0 0 10px 0;">{{ news.summary }}</p>
+                    <div style="background-color: #ffffff; padding: 8px 12px; border-radius: 4px; font-size: 13px; color: #0369a1; margin-bottom: 8px; border: 1px dashed #bae6fd;">
+                        <strong>💡 Küresel Etki:</strong> {{ news.why_important }}
+                    </div>
+                    {% if news.sources %}
+                    <div style="font-size: 12px; color: #94a3b8;">
+                        📎 Kaynak: 
+                        {% for source in news.sources %}
+                            <a href="{{ source.url }}" target="_blank" style="color: #2563eb; text-decoration: underline;">{{ source.name }}</a>{% if not loop.last %} • {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </td>
+        </tr>
+        {% endif %}
+
+        <!-- Diğer (Teknoloji / Spor) -->
+        {% if report_data.summary and report_data.summary.categorized_news and (report_data.summary.categorized_news.teknoloji or report_data.summary.categorized_news.spor) %}
+        <tr>
+            <td style="padding: 25px 20px; border-bottom: 1px solid #e2e8f0;">
+                <div style="border-bottom: 2px solid #10b981; padding-bottom: 8px; margin-bottom: 18px;">
+                    <h3 style="margin: 0; font-size: 18px; color: #059669; font-weight: 800;">💡 TEKNOLOJİ & DİĞER GELİŞMELER</h3>
+                </div>
+                {% set diger_haberler = (report_data.summary.categorized_news.teknoloji | default([])) + (report_data.summary.categorized_news.spor | default([])) %}
+                {% for news in diger_haberler %}
+                <div style="background-color: #ecfdf5; border: 1px solid #d1fae5; border-left: 4px solid #10b981; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px;">
+                    <h4 style="margin: 0 0 6px 0; font-size: 15px; color: #065f46; font-weight: 700;">{{ news.title }}</h4>
+                    <p style="font-size: 13px; line-height: 1.5; color: #334155; margin: 0 0 6px 0;">{{ news.summary }}</p>
+                    {% if news.sources %}
+                    <div style="font-size: 11px; color: #94a3b8;">
+                        📎 Kaynak: 
+                        {% for source in news.sources %}
+                            <a href="{{ source.url }}" target="_blank" style="color: #059669; text-decoration: underline;">{{ source.name }}</a>{% if not loop.last %} • {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </td>
+        </tr>
+        {% endif %}
+
+        <!-- Devam Eden Hikayeler -->
+        {% if report_data.tracked_stories %}
+        <tr>
+            <td style="padding: 25px 20px; border-bottom: 1px solid #e2e8f0; background-color: #fafaf9;">
+                <div style="border-bottom: 2px solid #64748b; padding-bottom: 8px; margin-bottom: 18px;">
+                    <h3 style="margin: 0; font-size: 18px; color: #334155; font-weight: 800;">🔄 DEVAM EDEN HİKAYELER (Zaman Çizelgesi)</h3>
+                </div>
+                {% for story in report_data.tracked_stories %}
+                <div style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 16px; margin-bottom: 12px;">
+                    <h4 style="margin: 0 0 4px 0; font-size: 15px; color: #0f172a; font-weight: 800;">📌 {{ story.title }}</h4>
+                    <p style="font-size: 13px; color: #64748b; margin: 0 0 10px 0;">{{ story.context }}</p>
+                    
+                    <div style="border-left: 2px solid #cbd5e1; padding-left: 12px; margin-left: 4px;">
+                        {% for item in story.timeline %}
+                        <div style="font-size: 13px; margin-bottom: 6px; position: relative;">
+                            <span style="font-weight: 700; color: #0284c7;">{{ item.date }}:</span> 
+                            <span style="color: #334155;">{{ item.summary or item.event }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </td>
+        </tr>
+        {% endif %}
+
+        <!-- Yarın Ne Beklenmeli -->
+        {% if report_data.tomorrow_preview %}
+        <tr>
+            <td style="padding: 25px 20px; border-bottom: 1px solid #e2e8f0;">
+                <div style="border-bottom: 2px solid #8b5cf6; padding-bottom: 8px; margin-bottom: 18px;">
+                    <h3 style="margin: 0; font-size: 18px; color: #7c3aed; font-weight: 800;">📅 YARIN NE BEKLENMELİ? (Ekonomi Takvimi & Gündem)</h3>
+                </div>
+                {% for event in report_data.tomorrow_preview %}
+                <div style="background-color: #f5f3ff; border: 1px solid #ede9fe; border-left: 4px solid #8b5cf6; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px;">
+                    <div style="font-size: 14px; font-weight: 800; color: #5b21b6; margin-bottom: 4px;">
+                        ⏰ {{ event.time }} — {{ event.event or event.event_name }}
+                    </div>
+                    <div style="font-size: 13px; color: #4c1d95; line-height: 1.5;">
+                        <strong>Neden Takip Edilmeli?</strong> {{ event.why_important or event.why_matters }}
+                    </div>
+                </div>
+                {% endfor %}
+            </td>
+        </tr>
+        {% endif %}
+
+        <!-- Günün Finansal Kavramları -->
+        {% if report_data.summary and report_data.summary.new_concepts %}
+        <tr>
+            <td style="padding: 25px 20px; border-bottom: 1px solid #e2e8f0; background-color: #f8fafc;">
+                <div style="border-bottom: 2px solid #0284c7; padding-bottom: 8px; margin-bottom: 18px;">
+                    <h3 style="margin: 0; font-size: 18px; color: #0369a1; font-weight: 800;">📚 GÜNÜN FİNANSAL KAVRAMLARI (Sözlük)</h3>
+                </div>
+                {% for concept in report_data.summary.new_concepts %}
+                <div style="background-color: #ffffff; border: 1px solid #e0f2fe; border-radius: 8px; padding: 14px 16px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+                    <div style="font-size: 15px; font-weight: 800; color: #0284c7; margin-bottom: 4px;">💡 {{ concept.term }}</div>
+                    <p style="font-size: 14px; line-height: 1.6; color: #334155; margin: 0;">{{ concept.explanation }}</p>
+                </div>
+                {% endfor %}
+            </td>
+        </tr>
+        {% endif %}
+
+        <!-- Mini Quiz -->
+        {% if report_data.quiz and report_data.quiz.questions %}
+        <tr>
+            <td style="padding: 25px 20px; border-bottom: 1px solid #e2e8f0;">
+                <div style="border-bottom: 2px solid #a855f7; padding-bottom: 8px; margin-bottom: 18px;">
+                    <h3 style="margin: 0; font-size: 18px; color: #9333ea; font-weight: 800;">🎯 GÜNLÜK MİNİ QUIZ (Kendini Test Et)</h3>
+                </div>
+                {% for q in report_data.quiz.questions %}
+                <div style="background-color: #faf5ff; border: 1px solid #f3e8ff; border-radius: 8px; padding: 16px; margin-bottom: 14px;">
+                    <p style="font-size: 15px; font-weight: 800; color: #581c87; margin: 0 0 12px 0;">Soru {{ loop.index }}: {{ q.question }}</p>
+                    <ul style="list-style-type: none; padding-left: 0; margin: 0 0 12px 0;">
+                        {% if q.options is mapping %}
+                            {% for key, val in q.options.items() %}
+                            <li style="font-size: 14px; padding: 6px 10px; background-color: #ffffff; border: 1px solid #e9d5ff; border-radius: 4px; margin-bottom: 6px; color: #3b0764;">
+                                <strong>{{ key }})</strong> {{ val }}
+                            </li>
+                            {% endfor %}
+                        {% else %}
+                            {% for option in q.options %}
+                            <li style="font-size: 14px; padding: 6px 10px; background-color: #ffffff; border: 1px solid #e9d5ff; border-radius: 4px; margin-bottom: 6px; color: #3b0764;">
+                                {{ option }}
+                            </li>
+                            {% endfor %}
+                        {% endif %}
+                    </ul>
+                    <details style="font-size: 13px; margin-top: 8px;">
+                        <summary style="cursor: pointer; color: #7e22ce; font-weight: 700; padding: 4px 0;">👉 Doğru Cevabı ve Açıklamayı Göster</summary>
+                        <div style="margin-top: 8px; padding: 10px 12px; background-color: #ffffff; border-left: 3px solid #16a34a; border-radius: 4px; color: #166534;">
+                            <strong style="display: block; margin-bottom: 4px;">✅ Doğru Cevap: {{ q.correct_answer }}</strong>
+                            <span style="color: #334155; font-style: italic;">{{ q.explanation }}</span>
+                        </div>
+                    </details>
+                </div>
+                {% endfor %}
+            </td>
+        </tr>
+        {% endif %}
+
+        <!-- Weekly HTML Injected Here (if Friday) -->
+        {% if weekly_html %}
+            {{ weekly_html | safe }}
+        {% endif %}
+
+        <!-- Footer -->
+        <tr>
+            <td style="background-color: #0f172a; padding: 25px 20px; text-align: center;">
+                <p style="color: #94a3b8; margin: 0 0 8px 0; font-size: 13px;">Bu bülten Gemini AI ve Python otomasyonu ile tamamen ücretsiz olarak hazırlanmıştır.</p>
+                <p style="color: #64748b; margin: 0; font-size: 11px;">Finansal okuryazarlık bir yolculuktur. Her gün bir adım daha ileriye. 🚀</p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
