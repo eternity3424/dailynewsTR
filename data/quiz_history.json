@@ -53,6 +53,33 @@
         }
       ],
       "date": "2026-10-07T01:10:22.224304+03:00"
+    },
+    {
+      "questions": [
+        {
+          "question": "Aşağıdakilerden hangisi \"Likidite\" kavramını en doğru şekilde tanımlar?",
+          "options": [
+            "A) Bir varlığın değer kaybetmeden, hızlı ve kolay bir şekilde nakde çevrilebilme yeteneğidir.",
+            "B) Devletlerin borç para bulmak için çıkardığı borç senetlerinin toplam değeridir.",
+            "C) Şirketlerin hisse senetlerinden elde ettiği yıllık brüt kâr payıdır.",
+            "D) Bankaya yatırılan paranın belirli bir vade sonunda sağladığı sabit faiz getirisidir."
+          ],
+          "correct_answer": "A) Bir varlığın değer kaybetmeden, hızlı ve kolay bir şekilde nakde çevrilebilme yeteneğidir.",
+          "explanation": "Likidite, bir finansal varlığın ya da malın ne kadar kolay nakit paraya dönüştürülebileceğini gösterir. Nakit para en yüksek likiditeye sahip varlıktır."
+        },
+        {
+          "question": "Bireylerin veya kurumların kazançlarını değerlendirmek ve güvende tutmak amacıyla bankalara yatırdıkları, belirli bir vade sonunda ana para artı getiri sağlayan para birikimi aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Dış ticaret fazlası",
+            "B) Mevduat",
+            "C) Jeopolitik risk",
+            "D) Tahvil faizi"
+          ],
+          "correct_answer": "B) Mevduat",
+          "explanation": "Mevduat, tasarruf sahiplerinin bankalarda vadeli veya vadesiz olarak değerlendirdiği, belirli şartlarda getiri sağlayan fon birikimidir."
+        }
+      ],
+      "date": "2026-10-07T02:02:36.046304+03:00"
     }
   ]
 }
