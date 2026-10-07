@@ -118,27 +118,84 @@ Tanımlı değilse kod varsayılanı kullanır.
 
 ## ⏰ Zamanlama
 
-| Rapor | Saat (Türkiye) | UTC | İçerik |
-|-------|---------------|-----|--------|
-| Sabah | 08:13 | 05:13 | Gece gelişmeleri + piyasa açılış |
-| Akşam | 20:07 | 17:07 | Gün özeti + piyasa kapanış |
-| Haftalık | Cuma akşamı (akşam raporuna eklenir) | — | Haftanın değerlendirmesi |
+| Rapor | Saat | Mod | İçerik |
+|-------|------|-----|--------|
+| Sabah | **08:13** | `morning` | Gece gelişmeleri + piyasa açılış |
+| Akşam | **20:07** | `evening` | Gün özeti + piyasa kapanış |
+| Haftalık | Cuma akşamı | — | Akşam raporuna ek bölüm olarak düşer |
 
-> **Neden 08:00 değil de 08:13?**
-> GitHub Actions cron'u UTC'dir ve **saatin tam başında yoğunluk arttığı için
-> zamanlayıcı bazı işleri sessizce düşürebilir** ("High load times include the
-> start of every hour... some queued jobs may be dropped"). Dakikayı `00`'dan
-> kaydırmak (burada `13` ve `7`) düşürme ihtimalini azaltır.
-> Workflow, `timezone: 'Europe/Istanbul'` alanıyla TR saatini doğrudan yazar;
-> yorum satırlarında UTC karşılığı da durur.
+Zamanlama **Windows Görev Zamanlayıcısı** ile yapılır; saatler bilgisayarın
+yerel saatidir (Türkiye saati).
+
+> **Neden GitHub Actions cron'u değil?**
+> Bu repo GitHub Actions ile denendi ve cron güvenilir çalışmadı:
+>
+> | Slot (UTC) | Beklenen | Gözlenen |
+> |---|---|---|
+> | 07.10 05:00 | 07.10 05:00 | 07.10 **11:31** (+6s31dk) |
+> | 07.10 17:00 | 07.10 17:00 | hiç gelmedi |
+>
+> `*/15` frekanslı ayrı bir test workflow'u bile art arda 4 slot kaçırdı;
+> saat başı olmayan `:15`/`:45` dakikaları da dahildi. Repo public yapıldı,
+> fork kontrol edildi, Actions durum sayfası temiz, billing uyarısı yok —
+> yine de tetiklenmedi. GitHub'ın `dispatch` tetikleyicisi ise sorunsuz
+> çalışıyor ve maili ulaştırıyordu; yani sorun yalnızca zamanlayıcıdaydı.
+>
+> Bu nedenle zamanlama işletim sistemine taşındı: ücretsiz, üçüncü parti
+> bağımlılığı yok ve tam zamanında çalışıyor.
+
+### Görevleri kurma
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\run_report.ps1 -Mode morning   # elle deneme (mail gider)
+powershell -ExecutionPolicy Bypass -File scripts\run_report.ps1 -Mode evening
+powershell -ExecutionPolicy Bypass -File scripts\run_report.ps1 -Mode morning -Test  # mail gitmez, HTML üretir
+```
+
+`scripts\run_report.ps1` her çalıştırmada sırasıyla: repoyu günceller →
+bülteni üretip **gerçek e-posta gönderir** → `data/` dosyalarını commit edip
+push eder → `logs/` altına UTF-8 log yazar.
+
+Görevleri PowerShell ile kaydetmek için:
+
+```powershell
+$script = "C:\...\Project2\scripts\run_report.ps1"
+$a = New-ScheduledTaskAction -Execute 'powershell.exe' `
+     -Argument "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File `"$script`""
+$p = New-ScheduledTaskPrincipal -UserId "$env:USERDOMAIN\$env:USERNAME" -LogonType Interactive
+$s = New-ScheduledTaskSettingsSet -WakeToRun -StartWhenAvailable `
+     -DontStopIfGoingOnBatteries -AllowStartIfOnBatteries -ExecutionTimeLimit (New-TimeSpan -Minutes 45)
+
+Register-ScheduledTask -TaskName 'DailyNewsTR-Sabah' -Action $a `
+  -Trigger (New-ScheduledTaskTrigger -Daily -At '08:13') -Principal $p -Settings $s -Force
+Register-ScheduledTask -TaskName 'DailyNewsTR-Aksam' -Action $a `
+  -Trigger (New-ScheduledTaskTrigger -Daily -At '20:07') -Principal $p -Settings $s -Force
+```
+
+Görevleri silmek için:
+
+```powershell
+Unregister-ScheduledTask -TaskName 'DailyNewsTR-Sabah' -Confirm:$false
+Unregister-ScheduledTask -TaskName 'DailyNewsTR-Aksam' -Confirm:$false
+```
+
+> **Bilgisayar kapalıysa ne olur?**
+> `StartWhenAvailable` açık olduğu için bilgisayar 08:13'te kapalıysa
+> bülten bir sonraki açılışta üretilir (gecikmiş olarak).
+> `WakeToRun` ile bilgisayar uyku modundaysa 08:13'te kendisi uyanır.
+> Görev "Interactive" oturum tanımıyla kaydedildiği için **Windows
+> kullanıcısı oturum açık olmalıdır**. `LogonType S4U` ile oturum açma
+> şartını kaldırmak mümkündür ama S4U görevleri ağ erişiminde sorun
+> yaşayabildiği için varsayılan bırakılmadı.
 
 ## 📁 Proje Yapısı
 
 ```
 Project2/
 ├── .github/workflows/
-│   ├── daily-report.yml       # GitHub Actions cron (bülteni üretir ve gönderir)
-│   └── cron-heartbeat.yml     # GEÇİCİ zamanlayıcı teşhisi (24-48 saat sonra silin)
+│   └── daily-report.yml       # Yalnızca ELLE tetikleme (yedek yol / veri senkronu)
+├── scripts/
+│   └── run_report.ps1         # Windows Görev Zamanlayıcısı çalıştırıcısı
 ├── src/
 │   ├── main.py                # Ana orchestrator
 │   ├── config.py              # Ayarlar
@@ -171,36 +228,62 @@ Project2/
 
 ## 🧪 Manuel Test
 
-```bash
-# Gerçek e-posta gönderimi testi
-python -m src.main --mode evening
+```powershell
+# Gerçek e-posta gönderimi
+powershell -ExecutionPolicy Bypass -File scripts\run_report.ps1 -Mode evening
 
-# GitHub Actions'ı manuel tetikleme
-# GitHub repo → Actions → Günlük Haber Bülteni → Run workflow
+# E-posta göndermeden HTML üret (tarayıcıda açıp incele)
+powershell -ExecutionPolicy Bypass -File scripts\run_report.ps1 -Mode morning -Test
+
+# Zamanlanmış görevi elle tetikle (gerçek mail gider)
+Start-ScheduledTask -TaskName 'DailyNewsTR-Sabah'
+
+# Görev durumunu ve son çalışma sonucunu gör
+Get-ScheduledTaskInfo -TaskName 'DailyNewsTR-Sabah'
 ```
 
-## 🔍 Sorun Giderme: Zamanlanmış Bülten Gelmiyor
+## 🔍 Sorun Giderme
 
-Manuel tetikleme çalışıyorsa sorun **zamanlayıcıdadır**, kodda değildir.
-Şu sırayla kontrol edin:
+**Bülten gelmediyse önce loga bakın.** Her çalıştırma
+`logs/run_<mod>_<tarih>.log` dosyasına yazılır:
 
-1. **Actions → olay türü filtresi = `schedule`.** Hiç kayıt yoksa zamanlayıcı
-   hiç koşu üretmemiştir.
-2. **`cron-heartbeat.yml` teşhis iş akışına bakın** (`*/15 * * * *`).
-   - `:15`, `:30`, `:45` dakikalarında düzenli run varsa ama **`:00`'da yoksa**
-     bu, saat başı düşürme sorunudur.
-   - Hiç run yoksa zamanlayıcı hiç devreye girmiyor; `main`'e bir cron değişikliği
-     push edip Actions sekmesinden workflow'u yeniden etkinleştirin.
-   - Teşhis tamamlanınca `.github/workflows/cron-heartbeat.yml` dosyasını silin.
-3. **Workflow dosyası default branch'te mi?** GitHub zamanlanmış iş akışlarını
-   yalnızca default branch'ten (`main`) çalıştırır; başka bir daldaki `schedule`
-   asla tetiklenmez.
-4. **Repo 60 gün hareketsiz kaldıysa** (public repo) GitHub zamanlanmış iş
-   akışlarını sessizce devre dışı bırakır. Bir commit push edin.
-5. **"Raporu sakla" artifact'ini indirin** — `python -m src.main` logları orada
-   bulunur.
-6. **Hata olursa artık alarm maili gelir.** Rapor üretilemezse workflow
-   `RECIPIENT_EMAIL` adresine `[HATA]` önekli bir bildirim gönderir.
+```powershell
+Get-ChildItem logs\*.log | Sort-Object LastWriteTime | Select-Object -Last 1 |
+  Get-Content -Encoding UTF8 -Tail 40
+```
+
+**Görev hiç çalışmadıysa** (log dosyası yok):
+
+1. `Get-ScheduledTask -TaskName 'DailyNewsTR-*'` → durum `Ready` olmalı.
+2. **Windows kullanıcı oturumu açık mı?** Görevler `Interactive`
+   oturum tanımıyla kayıtlı; oturum kapalıyken çalışmazlar.
+3. Görevi elle tetikleyip sonucu okuyun:
+   ```powershell
+   Start-ScheduledTask -TaskName 'DailyNewsTR-Sabah'
+   Get-ScheduledTaskInfo -TaskName 'DailyNewsTR-Sabah' | Select-Object LastRunTime, LastTaskResult
+   ```
+   `LastTaskResult` `0` ise başarılı, `0x1` ise script hata verdi (loga bakın).
+
+**Çalıştı ama mail gitmediyse** logda `E-posta başarıyla gönderildi!`
+yazmıyordur. `sender.py` 3 deneme yapar; son deneme de başarısızsa
+`main.py` `sys.exit(1)` verir. Gmail App Password'in geçerli olduğundan
+ve 2 Adımlı Doğrulama'nın açık olduğundan emin olun.
+
+**Gemini hataları:** logda `kotası tükenmiş` görüyorsanız kotadadır,
+`geçici olarak meşgul` görüyorsanız 503 alınıp yeniden denenmiştir.
+Her iki durumda da bülten piyasa verileriyle gönderilir, AI bölümü boş
+kalır. `zaman bütçesi doldu` mesajı 180 saniyelik süre aşımını gösterir.
+
+**Bilinen zararsız uyarılar:**
+
+- `'TRT Spor' ... mismatched tag` → kaynak feed'in XML'i bozuk; atlanır.
+- `Automatic function calling (AFC)` → `google-genai` bilgi mesajı.
+- Bazen `SSL: WRONG_VERSION_NUMBER` → tek bir RSS kaynağına ağ erişim
+  sorunu; o kaynak atlanır, diğerleri işlenir.
+
+**GitHub Actions yedeği:** `.github/workflows/daily-report.yml` artık
+zamanlamasızdır ama elle tetiklenebilir (Actions → Run workflow). Yedek
+yol olarak kullanışlıdır; verileri de `main`'e commit eder.
 
 ## 📄 Lisans
 

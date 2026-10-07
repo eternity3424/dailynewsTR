@@ -1,19 +1,12 @@
-name: "📰 Günlük Haber Bülteni"
+name: "📰 Günlük Haber Bülteni (manuel)"
 
+# Zamanlama kaldırıldı: GitHub'ın Actions scheduler'ı bu repoda saat
+# başı kuyruğunda ~6,5 saatlik gecikmeyle çalışıyor ve bazı slotları
+# hiç tetiklemiyordu. Günlük bülten artık Windows Görev Zamanlayıcısı
+# tarafından bu bilgisayarda üretiliyor (scripts/run_report.ps1).
+# Bu workflow yalnızca elle tetikleme / veri senkronizasyonu içindir.
 on:
-  schedule:
-    # NOT: schedule olayı yalnızca default branch üzerinden çalışır ve UTC'dir.
-    # GitHub, saatin tam başında yoğunluk arttığı için bazı işleri düşürebilir
-    # ("High load times include the start of every hour ... some queued jobs may be dropped").
-    # Bu yüzden dakika 00 yerine çapraz bir dakika seçiyoruz.
-    # Sabah raporu: 08:13 Türkiye saati (Europe/Istanbul) = 05:13 UTC
-    - cron: '13 8 * * *'
-      timezone: 'Europe/Istanbul'
-    # Akşam raporu: 20:07 Türkiye saati (Europe/Istanbul) = 17:07 UTC
-    - cron: '7 20 * * *'
-      timezone: 'Europe/Istanbul'
-
-  # Manuel tetikleme (test için)
+  # Manuel tetikleme (test veya kaçırılan bir günü telafi etmek için)
   workflow_dispatch:
     inputs:
       mode:
@@ -70,19 +63,13 @@ jobs:
       - name: 📦 Bağımlılıkları yükle
         run: pip install -r requirements.txt
 
-      # 5. Rapor modunu belirle
+      # 5. Rapor modunu belirle (yalnızca elle tetiklemede anlamlı)
       - name: 🕐 Rapor modunu belirle
         id: mode
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "mode=${{ github.event.inputs.mode }}" >> $GITHUB_OUTPUT
-          elif [ "$(date -u +%H)" -lt 12 ]; then
-            echo "mode=morning" >> $GITHUB_OUTPUT
-          else
-            echo "mode=evening" >> $GITHUB_OUTPUT
-          fi
+          echo "mode=${{ github.event.inputs.mode || 'morning' }}" >> $GITHUB_OUTPUT
 
-      # 5. Raporu çalıştır
+      # 6. Raporu çalıştır
       - name: 📰 Rapor oluştur ve gönder
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
