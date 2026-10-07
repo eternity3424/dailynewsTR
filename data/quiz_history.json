@@ -107,6 +107,33 @@
         }
       ],
       "date": "2026-10-07T12:16:27.293157+03:00"
+    },
+    {
+      "questions": [
+        {
+          "question": "Bankaya ya da finans kurumuna para yatıran, yani hesap açarak tasarruflarını bu kurumlara emanet eden müşteri aşağıdakilerden hangisiyle ifade edilir?",
+          "options": [
+            "A) Mudi",
+            "B) İhracatçı",
+            "C) Yatırım fonu yöneticisi",
+            "D) Varlık kiralama şirketi"
+          ],
+          "correct_answer": "A) Mudi",
+          "explanation": "Mudi, bankada hesabı bulunan ve tasarruflarını bankaya emanet eden müşteri anlamına gelir."
+        },
+        {
+          "question": "Bir tarım ürününün belirli bir döneme ait üretim miktarını ve bolluk derecesini ifade eden kavram aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Likidite",
+            "B) Rekolte",
+            "C) Dış ticaret fazlası",
+            "D) Sukuk"
+          ],
+          "correct_answer": "B) Rekolte",
+          "explanation": "Rekolte, tarım ürünlerinin belirli bir dönemdeki üretim miktarını ve bolluk oranını gösteren bir terimdir."
+        }
+      ],
+      "date": "2026-10-08T00:33:31.794034+03:00"
     }
   ]
 }
