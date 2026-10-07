@@ -34,6 +34,22 @@ def clean_json_text(text: str) -> str:
     return clean.strip()
 
 
+def _is_quota_exhausted(err_str: str) -> bool:
+    """
+    429'un "dakikalık hız limiti" mi yoksa "kota tamamen tükenmiş" mi
+    olduğunu ayırır. Kota tükenmişse beklemenin anlamı yoktur.
+    """
+    if "429" not in err_str and "RESOURCE_EXHAUSTED" not in err_str:
+        return False
+    exhausted_markers = (
+        "exceeded your current quota",
+        "quota exceeded",
+        "billing",
+        "free tier",
+    )
+    return any(marker in err_str.lower() for marker in exhausted_markers)
+
+
 def call_gemini_json_with_retry(
     client: genai.Client,
     prompt: str,
@@ -44,10 +60,14 @@ def call_gemini_json_with_retry(
     Gemini API'den JSON yanıt alır.
     503 veya 429 gibi yoğunluk durumlarında üstel bekleme ve model yedekleme uygular.
     """
+    # Sıra önemli: en güvenilir model önce denenir, güçlü ama kotada sorunlu
+    # modeller sona bırakılır. Hepsi sabitlenmiş GA model id'leridir — kayan
+    # "-latest" alias'ları kullanılmıyor, çünkü arkasındaki model sessizce
+    # değişebiliyor.
     candidate_models = [
         primary_model or config.GEMINI_MODEL,
-        "gemini-flash-latest",
-        "gemini-3.5-flash-lite",
+        "gemini-3.6-flash",
+        "gemini-3.8-flash",
     ]
     # Tekrarları kaldır
     models = list(dict.fromkeys(candidate_models))
@@ -69,6 +89,16 @@ def call_gemini_json_with_retry(
             except Exception as e:
                 last_error = e
                 err_str = str(e)
+
+                # Kota tamamen tükendiyse aynı modeli tekrar denemenin anlamı
+                # yok; beklemek sadece run süresini uzatır. Sıradaki modele geç.
+                if _is_quota_exhausted(err_str):
+                    logger.warning(
+                        f"{model} kotası tükenmiş, tekrar denenmeden "
+                        "sonraki modele geçiliyor."
+                    )
+                    break
+
                 if "503" in err_str or "UNAVAILABLE" in err_str or "429" in err_str:
                     wait_time = (2 ** attempt) + 1.5
                     logger.warning(

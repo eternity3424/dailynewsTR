@@ -17,7 +17,7 @@ Türkiye ve dünya gündemini takip eden, **Gemini AI** ile özetleyen, finansal
 
 | Bileşen | Teknoloji | Maliyet |
 |---------|-----------|---------|
-| AI Özetleme | Gemini API (gemini-2.0-flash) | Ücretsiz |
+| AI Özetleme | Gemini API (`gemini-3.5-flash-lite`) | Ücretsiz (kota sınırlı) |
 | Haber Toplama | RSS Feed'ler (feedparser) | Ücretsiz |
 | Piyasa Verileri | yfinance | Ücretsiz |
 | Ekonomi Takvimi | Investing.com (scraping) | Ücretsiz |
@@ -98,20 +98,47 @@ Repoyu GitHub'a push ettikten sonra:
 
 3. **Actions** sekmesine gidin ve workflow'u etkinleştirin
 
+İsteğe bağlı: modeli kod değiştirmeden değiştirmek için aynı sayfadaki
+**Variables** sekmesine `GEMINI_MODEL` değerini ekleyin.
+Tanımlı değilse kod varsayılanı kullanır.
+
+> **Kota notu.** Gemini ücretsiz katmanı model başına günlük çağrı sınırı uygular.
+> Denenen model sırası:
+> `GEMINI_MODEL` → `gemini-3.6-flash` → `gemini-3.8-flash`.
+>
+> Varsayılan `gemini-3.5-flash-lite` seçildi çünkü ölçümde
+> `gemini-3.8-flash` kotayı tamamen tüketmiş durumdaydı (`429
+> RESOURCE_EXHAUSTED`), `gemini-3.6-flash` ise sık `503 Service Unavailable`
+> döndürüyordu. Günlük otomasyon için güvenilirlik tercih edildi.
+>
+> Kota yeniden dolduğunda daha güçlü bir model isterseniz Variables'a
+> `GEMINI_MODEL = gemini-3.8-flash` yazmanız yeterli. Run loglarında
+> `kotası tükenmiş, ... sonraki modele geçiliyor` veya `geçici olarak meşgul`
+> görürseniz neden bu.
+
 ## ⏰ Zamanlama
 
-| Rapor | Saat (Türkiye) | İçerik |
-|-------|---------------|--------|
-| Sabah | 08:00 | Gece gelişmeleri + piyasa açılış |
-| Akşam | 20:00 | Gün özeti + piyasa kapanış |
-| Haftalık | Cuma 20:00 | Haftanın değerlendirmesi (ek bölüm) |
+| Rapor | Saat (Türkiye) | UTC | İçerik |
+|-------|---------------|-----|--------|
+| Sabah | 08:13 | 05:13 | Gece gelişmeleri + piyasa açılış |
+| Akşam | 20:07 | 17:07 | Gün özeti + piyasa kapanış |
+| Haftalık | Cuma akşamı (akşam raporuna eklenir) | — | Haftanın değerlendirmesi |
+
+> **Neden 08:00 değil de 08:13?**
+> GitHub Actions cron'u UTC'dir ve **saatin tam başında yoğunluk arttığı için
+> zamanlayıcı bazı işleri sessizce düşürebilir** ("High load times include the
+> start of every hour... some queued jobs may be dropped"). Dakikayı `00`'dan
+> kaydırmak (burada `13` ve `7`) düşürme ihtimalini azaltır.
+> Workflow, `timezone: 'Europe/Istanbul'` alanıyla TR saatini doğrudan yazar;
+> yorum satırlarında UTC karşılığı da durur.
 
 ## 📁 Proje Yapısı
 
 ```
 Project2/
 ├── .github/workflows/
-│   └── daily-report.yml       # GitHub Actions cron
+│   ├── daily-report.yml       # GitHub Actions cron (bülteni üretir ve gönderir)
+│   └── cron-heartbeat.yml     # GEÇİCİ zamanlayıcı teşhisi (24-48 saat sonra silin)
 ├── src/
 │   ├── main.py                # Ana orchestrator
 │   ├── config.py              # Ayarlar
@@ -151,6 +178,29 @@ python -m src.main --mode evening
 # GitHub Actions'ı manuel tetikleme
 # GitHub repo → Actions → Günlük Haber Bülteni → Run workflow
 ```
+
+## 🔍 Sorun Giderme: Zamanlanmış Bülten Gelmiyor
+
+Manuel tetikleme çalışıyorsa sorun **zamanlayıcıdadır**, kodda değildir.
+Şu sırayla kontrol edin:
+
+1. **Actions → olay türü filtresi = `schedule`.** Hiç kayıt yoksa zamanlayıcı
+   hiç koşu üretmemiştir.
+2. **`cron-heartbeat.yml` teşhis iş akışına bakın** (`*/15 * * * *`).
+   - `:15`, `:30`, `:45` dakikalarında düzenli run varsa ama **`:00`'da yoksa**
+     bu, saat başı düşürme sorunudur.
+   - Hiç run yoksa zamanlayıcı hiç devreye girmiyor; `main`'e bir cron değişikliği
+     push edip Actions sekmesinden workflow'u yeniden etkinleştirin.
+   - Teşhis tamamlanınca `.github/workflows/cron-heartbeat.yml` dosyasını silin.
+3. **Workflow dosyası default branch'te mi?** GitHub zamanlanmış iş akışlarını
+   yalnızca default branch'ten (`main`) çalıştırır; başka bir daldaki `schedule`
+   asla tetiklenmez.
+4. **Repo 60 gün hareketsiz kaldıysa** (public repo) GitHub zamanlanmış iş
+   akışlarını sessizce devre dışı bırakır. Bir commit push edin.
+5. **"Raporu sakla" artifact'ini indirin** — `python -m src.main` logları orada
+   bulunur.
+6. **Hata olursa artık alarm maili gelir.** Rapor üretilemezse workflow
+   `RECIPIENT_EMAIL` adresine `[HATA]` önekli bir bildirim gönderir.
 
 ## 📄 Lisans
 

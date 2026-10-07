@@ -17,8 +17,16 @@ DATA_DIR = BASE_DIR / "data"
 TEMPLATES_DIR = BASE_DIR / "templates"
 
 # ─── Gemini API ───────────────────────────────────────────────
+# Model seçimi ölçüme dayalı: ücretsiz katmanda gemini-3.8-flash kotası
+# tükeniyor (429), gemini-3.6-flash ise sık 503 Service Unavailable
+# döndürüyor. gemini-3.5-flash-lite ilk denemede kararlı 200 döndüğü ve
+# Google'ın yüksek hacimli otomasyon için önerdiği en ucuz model olduğu
+# için varsayılan olarak seçildi. Günlük bülten için güvenilirlik, bir
+# kademe daha kaliteye değer.
+# Repoda GEMINI_MODEL variable'ı tanımlayarak kod değiştirmeden güçlü bir
+# modele geçebilirsiniz (kota sıfırlandığında).
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
-GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.8-flash")
+GEMINI_MODEL = os.getenv("GEMINI_MODEL") or "gemini-3.5-flash-lite"
 
 # ─── E-posta Ayarları ────────────────────────────────────────
 GMAIL_ADDRESS = os.getenv("GMAIL_ADDRESS", "")

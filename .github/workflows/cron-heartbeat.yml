@@ -1,0 +1,38 @@
+# ⚠️ GEÇİCİ TEŞHİS WORKFLOW'U — 24-48 saat sonra bu dosyayı silin.
+#
+# Amaç: GitHub Actions zamanlayıcısının bu repoda gerçekten tetiklendiğini
+# kanıtlamak ve "saat başı düşürme" (top-of-hour drop) hipotezini doğrulamak.
+#
+# Bu iş akışı:
+#   - e-posta GÖNDERMEZ
+#   - data/ dosyalarına dokunmaz, commit atmaz
+#   - sadece saniyelerce runner süresi harcar
+#
+# Nasıl okunur:
+#   Actions sekmesi → olay türü filtresi = "schedule" → bu workflow'ı seç.
+#   Çalışma saatlerine bak:
+#     - :00, :15, :30, :45 dakikalarında run'lar düzenli geliyorsa
+#       zamanlayıcı sağlıklıdır; sorun daily-report.yml'in cron'unda demektir.
+#     - yalnızca :00 saatlerinde run YOKSA, saat başı yoğunluk düşürmesi
+#       doğrulanmış demektir (GitHub dokümanı bunu açıkça belirtir).
+
+name: "⏱️ Cron Teşhisi (geçici)"
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+
+  workflow_dispatch:
+
+jobs:
+  heartbeat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: 🩺 Nabız
+        run: |
+          echo "GitHub Actions zamanlayıcısı tetiklendi."
+          echo "utc_now = $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          echo "event   = ${{ github.event_name }}"
+          echo "sha     = ${{ github.sha }}"
+          echo "ref     = ${{ github.ref }}"
