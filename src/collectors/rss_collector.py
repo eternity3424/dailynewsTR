@@ -32,7 +32,10 @@ def collect_news(hours_back: int = 12) -> List[Dict[str, Any]]:
             feed_lang = feed.get("lang")
             
             try:
-                parsed_feed = feedparser.parse(feed_url)
+                # feedparser timeout parametresi desteklemiyor; socket
+                # seviyesinde sınır koyarak takılmayı önlüyoruz.
+                with helpers.network_timeout(20):
+                    parsed_feed = feedparser.parse(feed_url)
                 
                 if parsed_feed.bozo and getattr(parsed_feed, 'bozo_exception', None):
                     logger.warning(f"'{feed_name}' kaynağından okuma sırasında hata oluştu: {parsed_feed.bozo_exception}")

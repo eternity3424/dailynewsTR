@@ -55,11 +55,18 @@ def call_gemini_json_with_retry(
     prompt: str,
     primary_model: str | None = None,
     max_retries_per_model: int = 3,
+    max_seconds: float = 180.0,
 ) -> str:
     """
     Gemini API'den JSON yanıt alır.
-    503 veya 429 gibi yoğunluk durumlarında üstel bekleme ve model yedekleme uygular.
+
+    503/429 gibi yoğunluk durumlarında üstel bekleme ve model yedekleme uygular.
+    Ancak `max_seconds` duvar saati bütçesi tanımlıdır: bütçe dolduğunda
+    denemeyi bırakır. Aksi hâlde kota tükenmişken model zinciri toplamda
+    dakikalarca sürebiliyor ve işi zaman aşımına takdırıyordu.
     """
+    deadline = time.monotonic() + max_seconds
+
     # Sıra önemli: en güvenilir model önce denenir, güçlü ama kotada sorunlu
     # modeller sona bırakılır. Hepsi sabitlenmiş GA model id'leridir — kayan
     # "-latest" alias'ları kullanılmıyor, çünkü arkasındaki model sessizce
@@ -75,6 +82,14 @@ def call_gemini_json_with_retry(
     last_error = None
     for model in models:
         for attempt in range(max_retries_per_model):
+            # Bütçe dolduysa daha fazla model denemenin anlamı yok.
+            if time.monotonic() >= deadline:
+                logger.error(
+                    f"Gemini zaman bütçesi doldu ({max_seconds:.0f}s); "
+                    f"kalan modeller denenmeden bırakılıyor."
+                )
+                break
+
             try:
                 response = client.models.generate_content(
                     model=model,
@@ -101,6 +116,14 @@ def call_gemini_json_with_retry(
 
                 if "503" in err_str or "UNAVAILABLE" in err_str or "429" in err_str:
                     wait_time = (2 ** attempt) + 1.5
+                    # Bütçeyi aşacak kadar beklemeyi kırp.
+                    remaining = deadline - time.monotonic()
+                    if wait_time >= remaining:
+                        logger.error(
+                            f"Gemini bekleme süresi kalan bütçeyi aşıyor "
+                            f"({wait_time:.1f}s > {remaining:.1f}s); deneme bırakılıyor."
+                        )
+                        break
                     logger.warning(
                         f"Gemini {model} geçici olarak meşgul, {wait_time:.1f}s bekleniyor "
                         f"(Model: {model}, Deneme {attempt + 1}/{max_retries_per_model})..."
@@ -109,6 +132,12 @@ def call_gemini_json_with_retry(
                 else:
                     logger.warning(f"{model} modeli yanıt veremedi ({err_str[:120]}), bir sonraki modele geçiliyor.")
                     break
+        else:
+            continue
+
+        # Bütçe nedeniyle iç döngü `break` ile sonlandıysa model zincirini de bırak.
+        if time.monotonic() >= deadline:
+            break
 
     if last_error:
         raise last_error

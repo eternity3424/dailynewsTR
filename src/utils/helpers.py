@@ -4,6 +4,9 @@ from __future__ import annotations
 
 import re
 import logging
+import socket
+import time
+from contextlib import contextmanager
 from datetime import datetime, timedelta, timezone
 from difflib import SequenceMatcher
 from typing import Any
@@ -11,6 +14,25 @@ from typing import Any
 logger = logging.getLogger(__name__)
 
 TR_TZ = timezone(timedelta(hours=3))
+
+
+@contextmanager
+def network_timeout(seconds: float):
+    """
+    Socket seviyesinde varsayılan zaman aşımı uygular ve sonrasında eski
+    değeri geri yükler.
+
+    feedparser ve yfinance bu sürümlerinde timeout parametresi kabul
+    etmiyor; URL'ye bağlı bir çağrı takılırsa iş süresiz uzar. İş akışı
+    15 dakikalık timeout ile sınırlı olsa da bu, kısmen bozuk veriyle
+    devam etmeyi sağlar.
+    """
+    previous = socket.getdefaulttimeout()
+    socket.setdefaulttimeout(seconds)
+    try:
+        yield
+    finally:
+        socket.setdefaulttimeout(previous)
 
 
 def now_tr() -> datetime:

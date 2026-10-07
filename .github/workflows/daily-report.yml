@@ -33,7 +33,9 @@ concurrency:
 jobs:
   send-report:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # Gözlem: kota tükenmişken eski kodla iş 29-49 dakika asılı kalmıştı.
+    # Düzeltilmiş model zinciriyle yerelde ~2 dakika. 15 dk güvenli bir tavan.
+    timeout-minutes: 15
 
     # Güncellenen JSON dosyalarını commit edebilmek için
     permissions:

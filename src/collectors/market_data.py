@@ -3,6 +3,7 @@ from typing import List, Dict, Any
 import yfinance as yf
 
 from src import config
+from src.utils.helpers import network_timeout
 
 logger = logging.getLogger(__name__)
 
@@ -19,7 +20,9 @@ def get_market_data() -> List[Dict[str, Any]]:
     for name, symbol in config.MARKET_SYMBOLS.items():
         try:
             ticker = yf.Ticker(symbol)
-            hist = ticker.history(period="2d")
+            # yfinance bu sürümde timeout parametresi kabul etmiyor.
+            with network_timeout(15):
+                hist = ticker.history(period="2d")
             
             if hist.empty or len(hist) < 1:
                 logger.warning(f"{symbol} ({name}) için veri bulunamadı.")
