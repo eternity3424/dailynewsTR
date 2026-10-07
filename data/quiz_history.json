@@ -80,6 +80,33 @@
         }
       ],
       "date": "2026-10-07T02:02:36.046304+03:00"
+    },
+    {
+      "questions": [
+        {
+          "question": "Hem içten yanmalı motoru hem de elektrik motorunu aynı anda barındıran ve şehir içinde elektrikle çalışarak yakıt tasarrufu sağlayan araç türü aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Klasik dizel araç",
+            "B) Hibrit araç",
+            "C) Saf elektrikli araç",
+            "D) Varlık kiralama aracı"
+          ],
+          "correct_answer": "B) Hibrit araç",
+          "explanation": "Hibrit araçlar, hem benzinli/dizel gibi geleneksel motorları hem de elektrik motorunu bir arada barındırarak yakıt verimliliği ve düşük karbon salınımı sağlar."
+        },
+        {
+          "question": "Aşağıdakilerden hangisi bir varlığın 'Likidite' derecesini en iyi açıklar?",
+          "options": [
+            "A) O varlığın ne kadar sürede ve değer kaybı yaşamadan nakde çevrilebileceği",
+            "B) O varlığın devlete ödediği yıllık vergi oranı",
+            "C) Ülkeler arasındaki siyasi krizlerin o varlığın fiyatını düşürme hızı",
+            "D) Bir şirketin yıl sonunda elde ettiği brüt kârın ortaklara dağıtılma oranı"
+          ],
+          "correct_answer": "A) O varlığın ne kadar sürede ve değer kaybı yaşamadan nakde çevrilebileceği",
+          "explanation": "Likidite, bir finansal varlığın veya malın nakit paraya dönüşme hızı ve kolaylığı ile ilgilidir. Nakit para en yüksek likiditeye sahiptir."
+        }
+      ],
+      "date": "2026-10-07T12:16:27.293157+03:00"
     }
   ]
 }

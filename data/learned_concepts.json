@@ -39,6 +39,16 @@
       "term": "Likidite",
       "explanation": "Bir varlığın değer kaybetmeden, hızlı ve kolay bir şekilde nakde (paraya) çevrilebilme yeteneğidir. Nakit para en yüksek likiditeye sahip varlıktır.",
       "date_learned": "2026-10-07T02:02:10.670228+03:00"
+    },
+    {
+      "term": "Hibrit Araç",
+      "explanation": "Hem geleneksel içten yanmalı motoru (benzinli/dizel) hem de elektrik motorunu aynı anda barındıran araçlardır. Şehir içinde elektrikle çalışarak yakıt tasarrufu sağlar ve karbon salınımını azaltır.",
+      "date_learned": "2026-10-07T12:16:02.026476+03:00"
+    },
+    {
+      "term": "Jeopolitik Risk",
+      "explanation": "Ülkeler arasındaki siyasi gerilimlerin, savaşların veya bölgesel çatışmaların ekonomik piyasalarda (özellikle döviz, altın ve petrol fiyatlarında) yarattığı belirsizlik ve risk durumudur.",
+      "date_learned": "2026-10-07T12:16:02.026476+03:00"
     }
   ]
 }
