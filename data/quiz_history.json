@@ -161,6 +161,33 @@
         }
       ],
       "date": "2026-10-08T15:41:53.856329+03:00"
+    },
+    {
+      "questions": [
+        {
+          "question": "Faizsiz finans prensiplerine uygun olarak, varlık kiralama şirketleri tarafından ihraç edilen ve sahiplerine ilgili varlığın gelirinden pay alma hakkı tanıyan borçlanma aracı aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Tahvil",
+            "B) Kira Sertifikası (Sukuk)",
+            "C) Mevduat",
+            "D) Tasfiye"
+          ],
+          "correct_answer": "B) Kira Sertifikası (Sukuk)",
+          "explanation": "Kira Sertifikası (Sukuk), faizsiz finans ilkelerine dayanan ve yatırımcısına varlık gelirinden pay alma hakkı sağlayan bir finansal araçtır."
+        },
+        {
+          "question": "Ülkeler arasındaki savaşlar, bölgesel çatışmalar veya siyasi gerilimlerin döviz ve petrol fiyatları gibi piyasalarda yarattığı belirsizlik durumu aşağıdakilerden hangisiyle ifade edilir?",
+          "options": [
+            "A) Rekolte",
+            "B) Mudi",
+            "C) Jeopolitik risk",
+            "D) Likidite"
+          ],
+          "correct_answer": "C) Jeopolitik risk",
+          "explanation": "Jeopolitik risk, ülkelerin coğrafi ve siyasi konumlarından kaynaklanan çatışmaların ve gerilimlerin küresel piyasalarda oluşturduğu belirsizlik ortamıdır."
+        }
+      ],
+      "date": "2026-10-08T20:10:54.651057+03:00"
     }
   ]
 }

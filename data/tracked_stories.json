@@ -20,7 +20,11 @@
         },
         {
           "date": "2026-10-08",
-          "summary": "İran Dışişleri Bakanı Abbas Erakçi, müzakerelerin devam ettiğini, ABD’nin önerisini değerlendirdiklerini ve birkaç gün içinde cevap vereceklerini açıkladı."
+          "summary": "İran Dışişleri Bakanı Abbas Erakçi, müzakerelerin devam ettiğini, ABD’nin önerisini değerlendirdiklerini ve birkaç gün içinde cevap vereceğini açıkladı."
+        },
+        {
+          "date": "2026-10-08",
+          "summary": "ABD Başkanı Trump, İran ile verimli görüşmeler yürüttüklerini belirterek 3 Kasım'daki ara seçimlere kadar İran'a askeri bir saldırı düzenlemeyeceklerini açıkladı."
         }
       ]
     },
@@ -45,6 +49,10 @@
         {
           "date": "2026-10-07",
           "summary": "Fransa'da mahkeme, kamusal düzen açısından risk oluşturacağı gerekçesiyle planlanan Filistin'e destek gösterisinin yasaklanması kararını askıya aldı."
+        },
+        {
+          "date": "2026-10-08",
+          "summary": "Fransa'da liselilerin başlattığı eylemler ve okul kuşatmaları sürerken, öğrenciler çevrim içi dersleri engellemek için siber kuşatma girişimi başlattı."
         }
       ]
     }
