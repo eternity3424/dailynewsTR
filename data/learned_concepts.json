@@ -59,6 +59,21 @@
       "term": "Rekolte",
       "explanation": "Bir tarım ürününün (örneğin ceviz veya fındık) belirli bir döneme ait üretim miktarı ve bolluk derecesidir.",
       "date_learned": "2026-10-08T00:33:23.246046+03:00"
+    },
+    {
+      "term": "Tahvil",
+      "explanation": "Devletlerin veya büyük şirketlerin borç para bulmak amacıyla ihraç ettiği ve yatırımcısına belirli bir süre sonunda ana para artı faiz ödemesi vaat eden borç senedidir. Sabit getirili bir yatırım aracıdır.",
+      "date_learned": "2026-10-08T15:41:51.397651+03:00"
+    },
+    {
+      "term": "Tasfiye",
+      "explanation": "Bir şirketin, fonun veya ekonomik işletmenin faaliyetlerinin sonlandırılması, varlıklarının nakde çevrilerek borçlarının ödenmesi ve hesapların kapatılması sürecidir.",
+      "date_learned": "2026-10-08T15:41:51.397651+03:00"
+    },
+    {
+      "term": "Likidite",
+      "explanation": "Bir varlığın değer kaybetmeden, hızlı ve kolay bir şekilde nakit paraya dönüştürülebilme kolaylığıdır. Nakit para, en yüksek likiditeye sahip varlıktır.",
+      "date_learned": "2026-10-08T15:41:51.397651+03:00"
     }
   ]
 }

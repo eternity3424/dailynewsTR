@@ -134,6 +134,33 @@
         }
       ],
       "date": "2026-10-08T00:33:31.794034+03:00"
+    },
+    {
+      "questions": [
+        {
+          "question": "Devletlerin veya büyük şirketlerin borç para bulmak amacıyla ihraç ettiği ve yatırımcısına belirli bir süre sonunda ana para artı faiz ödemesi vaat eden sabit getirili borç senedi aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Kira Sertifikası (Sukuk)",
+            "B) Tahvil",
+            "C) Mudi",
+            "D) Rekolte"
+          ],
+          "correct_answer": "B) Tahvil",
+          "explanation": "Tahvil, devletlerin veya büyük şirketlerin finansman ihtiyacını karşılamak için çıkardığı, vade sonunda anapara ve faiz ödemesi vaat eden sabit getirili borç senedidir."
+        },
+        {
+          "question": "Bir şirketin, fonun veya ekonomik işletmenin faaliyetlerinin sonlandırılması, varlıklarının nakde çevrilerek borçlarının ödenmesi ve hesapların kapatılması süreci aşağıdakilerden hangisiyle ifade edilir?",
+          "options": [
+            "A) Tasfiye",
+            "B) Likidite",
+            "C) Jeopolitik risk",
+            "D) Dış ticaret fazlası"
+          ],
+          "correct_answer": "A) Tasfiye",
+          "explanation": "Tasfiye, bir ekonomik işletmenin ya da şirketin tüm faaliyetlerini durdurarak varlıklarını nakde çevirmesi, borçlarını ödemesi ve tüzel kişiliğini sonlandırması sürecidir."
+        }
+      ],
+      "date": "2026-10-08T15:41:53.856329+03:00"
     }
   ]
 }
