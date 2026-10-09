@@ -215,6 +215,33 @@
         }
       ],
       "date": "2026-10-09T11:23:49.017503+03:00"
+    },
+    {
+      "questions": [
+        {
+          "question": "Uluslararası hukuka veya kurallara uymayan devletlere, kurumlara veya kişilere karşı uygulanan ekonomik, siyasi veya hukuki kısıtlama ve cezalandırma tedbirleri aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Tasfiye",
+            "B) Yaptırım",
+            "C) Katılım Finans",
+            "D) Gözetim Uygulaması"
+          ],
+          "correct_answer": "B) Yaptırım",
+          "explanation": "Yaptırım, kurallara uymayan taraflara karşı uygulanan ekonomik, siyasi veya hukuki kısıtlama ve cezalandırma tedbirleridir."
+        },
+        {
+          "question": "Faizsiz finans prensiplerine dayanan, paranın para ile ticareti yerine ticaret ve ortaklık esasına dayalı olarak çalışan finansal sistem ve bankacılık modeli aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Tahvil",
+            "B) Katılım Finans",
+            "C) Tasfiye",
+            "D) Mudi"
+          ],
+          "correct_answer": "B) Katılım Finans",
+          "explanation": "Katılım finans, faizsiz prensiplere dayalı, ticaret ve ortaklık esasıyla çalışan alternatif bir finans ve bankacılık modelidir."
+        }
+      ],
+      "date": "2026-10-09T21:26:31.867027+03:00"
     }
   ]
 }
