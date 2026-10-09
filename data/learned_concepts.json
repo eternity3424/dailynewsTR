@@ -74,6 +74,16 @@
       "term": "Likidite",
       "explanation": "Bir varlığın değer kaybetmeden, hızlı ve kolay bir şekilde nakit paraya dönüştürülebilme kolaylığıdır. Nakit para, en yüksek likiditeye sahip varlıktır.",
       "date_learned": "2026-10-08T15:41:51.397651+03:00"
+    },
+    {
+      "term": "Takipteki Alacak",
+      "explanation": "Bankaların verdiği kredilerin, borçluları tarafından fais veya anapara ödemelerinin 90 gün boyunca aksatılması durumunda atandığı riskli kategoridir. Bankacılıkta batık kredi olarak da bilinir.",
+      "date_learned": "2026-10-09T11:23:46.948808+03:00"
+    },
+    {
+      "term": "Gözetim Uygulaması",
+      "explanation": "Devletin, yerli üretimi korumak veya dış ticaret dengesini sağlamak amacıyla belirli ithal ürünlerin miktarını ve fiyatını yakından denetim altında tutması ve izlemesi ticaret politikası aracıdır.",
+      "date_learned": "2026-10-09T11:23:46.948808+03:00"
     }
   ]
 }

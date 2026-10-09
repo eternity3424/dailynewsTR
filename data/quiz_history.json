@@ -188,6 +188,33 @@
         }
       ],
       "date": "2026-10-08T20:10:54.651057+03:00"
+    },
+    {
+      "questions": [
+        {
+          "question": "Bankaların verdiği kredilerin, borçluları tarafından ana para veya faiz ödemelerinin 90 gün boyunca aksatılması durumunda atandığı riskli kategori ve halk arasında bilinen adıyla batık kredi aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Tasfiye",
+            "B) Takipteki Alacak",
+            "C) Mevduat",
+            "D) Tahvil"
+          ],
+          "correct_answer": "B) Takipteki Alacak",
+          "explanation": "Takipteki alacak, banka kredilerinin 90 gün boyunca ödenmemesi durumunda atandığı ve bankacılıkta batık kredi olarak da bilinen riskli kategoridir."
+        },
+        {
+          "question": "Devletin yerli üretimi korumak veya dış ticaret dengesini sağlamak amacıyla belirli ithal ürünlerin miktarını ve fiyatını yakından denetim altında tutması ve izlemesi olarak tanımlanan ticaret politikası aracı aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Gözetim Uygulaması",
+            "B) Jeopolitik Risk",
+            "C) Rekolte",
+            "D) Likidite"
+          ],
+          "correct_answer": "A) Gözetim Uygulaması",
+          "explanation": "Gözetim uygulaması, devletin dış ticarette belirli ithal ürünlerin miktarını ve fiyatını yakından izleyerek denetim altında tutmasını sağlayan bir ticaret politikası aracıdır."
+        }
+      ],
+      "date": "2026-10-09T11:23:49.017503+03:00"
     }
   ]
 }
