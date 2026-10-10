@@ -242,6 +242,33 @@
         }
       ],
       "date": "2026-10-09T21:26:31.867027+03:00"
+    },
+    {
+      "questions": [
+        {
+          "question": "Yatırımcıların, ellerindeki parayı büyütebilmek veya daha yüksek getiri elde edebilmek için göze aldıkları belirsizlik ve tehlike miktarını ifade eden finansal psikoloji kavramı aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Likidite",
+            "B) Risk İştahı",
+            "C) Tasfiye",
+            "D) Tahvil"
+          ],
+          "correct_answer": "B) Risk İştahı",
+          "explanation": "Risk iştahı, yatırımcıların yatırımlarından daha yüksek getiri elde edebilmek adına katlanmayı göze aldıkları belirsizlik ve risk miktarını ifade eden bir kavramdır."
+        },
+        {
+          "question": "Bir finansal varlığın değer kaybetmeden, hızlı ve kolay bir şekilde nakit paraya dönüştürülebilme kolaylığı olarak tanımlanan terim aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Likidite",
+            "B) Yaptırım",
+            "C) Gözetim Uygulaması",
+            "D) Katılım Finans"
+          ],
+          "correct_answer": "A) Likidite",
+          "explanation": "Likidite, bir varlığın değerinden çok fazla ödün vermeden nakde çevrilebilme hızını ve kolaylığını ifade eder; nakit en yüksek likiditeye sahip varlıktır."
+        }
+      ],
+      "date": "2026-10-10T20:08:37.451852+03:00"
     }
   ]
 }
