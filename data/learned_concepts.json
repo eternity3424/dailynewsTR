@@ -109,6 +109,21 @@
       "term": "Risk İştahı",
       "explanation": "Yatırımcıların, ellerindeki parayı büyütebilmek için göze aldıkları belirsizlik ve tehlike miktarını ifade eden finansal psikoloji kavramıdır.",
       "date_learned": "2026-10-10T20:08:35.677451+03:00"
+    },
+    {
+      "term": "Tahvil",
+      "explanation": "Devletlerin veya şirketlerin, yatırımcılardan belirli bir süre için borç para almak amacıyla çıkardıkları ve vade sonunda anaparayı faiziyle geri ödemeyi taahhüt ettikleri borç senedidir.",
+      "date_learned": "2026-10-11T17:24:33.361417+03:00"
+    },
+    {
+      "term": "Likidite",
+      "explanation": "Bir varlığın değer kaybetmeden nakit paraya dönüştürülebilme kolaylığı ve hızıdır. Piyasada nakit bolluğunu ifade etmek için de kullanılır.",
+      "date_learned": "2026-10-11T17:24:33.361417+03:00"
+    },
+    {
+      "term": "Cari Açık",
+      "explanation": "Bir ülkenin dış ticaret, hizmetler ve transferler dengesi toplamında, dışarıya yaptığı ödemelerin dışarıdan aldığı gelirlerden fazla olması durumudur; yani ülkenin kazandığından fazla harcamasıdır.",
+      "date_learned": "2026-10-11T17:24:33.361417+03:00"
     }
   ]
 }

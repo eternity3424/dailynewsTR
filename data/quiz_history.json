@@ -269,6 +269,33 @@
         }
       ],
       "date": "2026-10-10T20:08:37.451852+03:00"
+    },
+    {
+      "questions": [
+        {
+          "question": "Bir ülkenin dış ticaret, hizmetler ve transferler dengesi toplamında, dışarıya yaptığı ödemelerin dışarıdan aldığı gelirlerden fazla olması durumu, yani kısaca kazandığından fazla harcaması aşağıdakilerden hangisiyle ifade edilir?",
+          "options": [
+            "A) Cari Açık",
+            "B) Tasfiye",
+            "C) Likidite",
+            "D) Tahvil"
+          ],
+          "correct_answer": "A) Cari Açık",
+          "explanation": "Cari açık, bir ülkenin döviz gelirlerinin giderlerinden az olması durumunu, yani dış ticaret ve hizmetler dengesindeki eksi bakiye durumunu ifade eder."
+        },
+        {
+          "question": "Ülkelerin coğrafi konumları nedeniyle sahip oldukları siyasi ve askeri güç dengelerinin, ekonomik piyasalarda yarattığı belirsizlik ve olası kriz ihtimali olarak tanımlanan kavram aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Yaptırım",
+            "B) Jeopolitik Risk",
+            "C) Gözetim Uygulaması",
+            "D) Risk İştahı"
+          ],
+          "correct_answer": "B) Jeopolitik Risk",
+          "explanation": "Jeopolitik risk, coğrafi ve siyasi gelişmelerin (savaşlar, bölgesel çatışmalar vb.) finansal piyasalarda oluşturduğu belirsizlikleri ifade eder."
+        }
+      ],
+      "date": "2026-10-11T17:24:35.025406+03:00"
     }
   ]
 }
