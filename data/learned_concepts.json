@@ -139,6 +139,16 @@
       "term": "Kredi Derecelendirme Kuruluşu",
       "explanation": "Ülkelerin veya şirketlerin borçlarını ödeme kapasitesini inceleyerek onlara güvenilirlik notu (kredi notu) veren uluslararası kuruluşlardır.",
       "date_learned": "2026-10-12T15:38:18.416100+03:00"
+    },
+    {
+      "term": "Likidite",
+      "explanation": "Bir varlığın değer kaybına uğramadan, yani nakde çevrilmesinin ne kadar kolay ve hızlı olduğunu gösteren finansal ölçüttür.",
+      "date_learned": "2026-10-12T20:08:21.762637+03:00"
+    },
+    {
+      "term": "Tedarik Zinciri",
+      "explanation": "Bir ürünün hammadde halinden son tüketiciye ulaşana kadar geçirdiği üretim, taşıma ve depolama süreçlerinin tamamıdır.",
+      "date_learned": "2026-10-12T20:08:21.762637+03:00"
     }
   ]
 }
