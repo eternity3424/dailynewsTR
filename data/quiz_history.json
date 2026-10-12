@@ -296,6 +296,33 @@
         }
       ],
       "date": "2026-10-11T17:24:35.025406+03:00"
+    },
+    {
+      "questions": [
+        {
+          "question": "Devletlerin veya şirketlerin, yatırımcılardan belirli bir süre için borç para almak amacıyla çıkardıkları ve vade sonunda anaparayı faiziyle geri ödemeyi taahhüt ettikleri borç senedi aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Cari Açık",
+            "B) Tahvil",
+            "C) Tedarik Zinciri",
+            "D) Likidite"
+          ],
+          "correct_answer": "B) Tahvil",
+          "explanation": "Tahvil, devletlerin ya da büyük şirketlerin borçlanmak amacıyla ihraç ettikleri, yatırımcısına vade sonunda anapara ve faiz ödemesi taahhüt eden bir borç senedidir."
+        },
+        {
+          "question": "Ülkelerin veya şirketlerin borçlarını ödeme kapasitesini uluslararası alanda inceleyerek onlara güvenilirlik notu (kredi notu) veren kuruluşlar aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Kredi Derecelendirme Kuruluşu",
+            "B) Katılım Finans",
+            "C) Tedarik Zinciri",
+            "D) Risk İştahı"
+          ],
+          "correct_answer": "A) Kredi Derecelendirme Kuruluşu",
+          "explanation": "Kredi derecelendirme kuruluşları, devletlerin ve şirketlerin finansal durumlarını analiz ederek onların borçlarını ödeme güçlerini (kredi notlarını) belirler."
+        }
+      ],
+      "date": "2026-10-12T15:38:20.236717+03:00"
     }
   ]
 }

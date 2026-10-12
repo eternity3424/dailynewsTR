@@ -124,6 +124,21 @@
       "term": "Cari Açık",
       "explanation": "Bir ülkenin dış ticaret, hizmetler ve transferler dengesi toplamında, dışarıya yaptığı ödemelerin dışarıdan aldığı gelirlerden fazla olması durumudur; yani ülkenin kazandığından fazla harcamasıdır.",
       "date_learned": "2026-10-11T17:24:33.361417+03:00"
+    },
+    {
+      "term": "Jeopolitik Risk",
+      "explanation": "Ülkelerin coğrafi konumları nedeniyle sahip oldukları siyasi, askeri veya ekonomik avantaj ve dezavantajların küresel piyasalarda yarattığı belirsizlik durumudur.",
+      "date_learned": "2026-10-12T15:38:18.416100+03:00"
+    },
+    {
+      "term": "Tedarik Zinciri",
+      "explanation": "Bir ürünün hammadde halinden son tüketiciye ulaşana kadar geçirdiği üretim, taşıma ve dağıtım süreçlerinin tamamıdır.",
+      "date_learned": "2026-10-12T15:38:18.416100+03:00"
+    },
+    {
+      "term": "Kredi Derecelendirme Kuruluşu",
+      "explanation": "Ülkelerin veya şirketlerin borçlarını ödeme kapasitesini inceleyerek onlara güvenilirlik notu (kredi notu) veren uluslararası kuruluşlardır.",
+      "date_learned": "2026-10-12T15:38:18.416100+03:00"
     }
   ]
 }
