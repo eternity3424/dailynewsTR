@@ -164,6 +164,21 @@
       "term": "Tedarik Zinciri",
       "explanation": "Bir ürünün hammadde halinden, üretilip son tüketiciye ulaşıncaya kadar geçirdiği tüm üretim, nakliye, depolama ve dağıtım süreçlerinin tamamıdır.",
       "date_learned": "2026-10-14T20:08:36.245707+03:00"
+    },
+    {
+      "term": "Enflasyon",
+      "explanation": "Ülkedeki mal ve hizmet fiyatlarının genel düzeyinin sürekli bir artış göstermesidir. Günlük hayatta paranızın alım gücünün azalması, yani geçen ay 100 liraya aldığınız bir sepet ürüne bu ay daha fazla ödemek zorunda kalmanız anlamına gelir.",
+      "date_learned": "2026-10-14T20:15:47.866125+03:00"
+    },
+    {
+      "term": "Patent Tazminatı",
+      "explanation": "Bir buluşun veya yenilikçi teknolojinin yasal sahibinin izni olmadan kullanılması durumunda mahkeme kararıyla ödenen cezai tazminattır. Şirketlerin ar-ge yatırımlarını ve fikri mülkiyet haklarını korumak için kritik bir hukuki araçtır.",
+      "date_learned": "2026-10-14T20:15:47.866125+03:00"
+    },
+    {
+      "term": "Tedarik Zinciri",
+      "explanation": "Bir ürünün hammadde halinden tüketiciye ulaşıncaya kadar geçirdiği üretim, taşıma ve dağıtım süreçlerinin tamamıdır. Hürmüz Boğazı gibi stratejik noktalar tıkanırsa bu zincir aksar ve ürün fiyatları yükselir.",
+      "date_learned": "2026-10-14T20:15:47.866125+03:00"
     }
   ]
 }

@@ -36,7 +36,7 @@
         },
         {
           "date": "2026-10-11",
-          "summary": "ABD Merkez Kuvvetler Komutanlığı (CENTCOM), İran''a yönelik ablukayı ihlal etmeye çalıştığı gerekçesiyle Umman Körfezi'ndeki ticari kargo gemisini etkisiz hale getirdiğini duyururken; Dışişleri Bakanlığı Husilerin Riyad'daki havalimanına saldırısını en güçlü şekilde kınadı."
+          "summary": "ABD Merkez Kuvvetler Komutanlığı (CENTCOM), İran'a yönelik ablukayı ihlal etmeye çalıştığı gerekçesiyle Umman Körfezi'ndeki ticari kargo gemisini etkisiz hale getirdiğini duyururken; Dışişleri Bakanlığı Husilerin Riyad'daki havalimanına saldırısını en güçlü şekilde kınadı."
         },
         {
           "date": "2026-10-12",
@@ -49,6 +49,10 @@
         {
           "date": "2026-10-14",
           "summary": "İsrail Genelkurmay Başkanı Eyal Zamir tüm cephelerde gerginliğin tırmanma ihtimalinin arttığını belirtirken; İran'ın Chabahar limanı yakınlarında iki güvenlik görevlisi öldürüldü ve BM yetkilileri Hormüz Boğazı'ndaki aksamalar nedeniyle gıda krizi uyarısında bulundu."
+        },
+        {
+          "date": "2026-10-14",
+          "summary": "İran'ın başkenti Tahran'dan İstanbul'a giden İran Airtour Havayollarına ait Airbus A320 tipi yolcu uçağının teknik arıza nedeniyle Tebriz Uluslararası Havalimanı'na acil iniş yaptığı bildirildi."
         }
       ]
     },
@@ -56,7 +60,7 @@
       "id": "e858774d-0cda-4e33-9e18-d5ca1593790c",
       "title": "Fransa'da Kitlesel Öğrenci Eylemleri ve Toplumsal Gerilim",
       "context": "Fransa genelinde lise öğrencilerinin öncülüğünde başlayan ve yüz binlerce kişinin katıldığı protestolar, polisle çatışmaların artması ve iç siyasette baskının büyümesi nedeniyle hükümet üzerinde kritik bir kriz yaratmaktadır.",
-      "status": "active",
+      "status": "archived",
       "timeline": [
         {
           "date": "2026-10-06",

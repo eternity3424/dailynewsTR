@@ -377,6 +377,33 @@
         }
       ],
       "date": "2026-10-14T20:08:38.810747+03:00"
+    },
+    {
+      "questions": [
+        {
+          "question": "Bir finansal varlığın, değerinde önemli bir kayıp yaşamadan ne kadar hızlı ve kolay nakit paraya dönüştürülebileceğini ifade eden kavram aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Tedarik Zinciri",
+            "B) Likidite",
+            "C) Patent Tazminatı",
+            "D) Enflasyon"
+          ],
+          "correct_answer": "B) Likidite",
+          "explanation": "Likidite, bir varlığın değer kaybetmeden hızlı bir şekilde nakde çevrilebilme kolaylığını ifade eden temel bir finansal ölçüttür."
+        },
+        {
+          "question": "Ülkedeki mal ve hizmet fiyatlarının genel düzeyinin sürekli bir artış göstermesi ve buna bağlı olarak paranın alım gücünün düşmesi durumunu ifade eden kavram aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Enflasyon",
+            "B) Tahvil",
+            "C) Cari Açık",
+            "D) Risk İştahı"
+          ],
+          "correct_answer": "A) Enflasyon",
+          "explanation": "Enflasyon, fiyatların sürekli artmasıyla birlikte paranızın alım gücünün azalmasını, yani aynı parayla daha az ürün alınabilmesini ifade eder."
+        }
+      ],
+      "date": "2026-10-14T20:15:49.601647+03:00"
     }
   ]
 }
