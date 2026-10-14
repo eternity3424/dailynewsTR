@@ -149,6 +149,21 @@
       "term": "Tedarik Zinciri",
       "explanation": "Bir ürünün hammadde halinden son tüketiciye ulaşana kadar geçirdiği üretim, taşıma ve depolama süreçlerinin tamamıdır.",
       "date_learned": "2026-10-12T20:08:21.762637+03:00"
+    },
+    {
+      "term": "Enflasyon",
+      "explanation": "Ülke genelindeki mal ve hizmet fiyatlarının genel düzeyinin sürekli bir artış göstermesidir. Enflasyon yükseldiğinde, sahip olduğunuz paranın alım gücü düşer; yani aynı parayla daha az ürün alabilirsiniz.",
+      "date_learned": "2026-10-14T20:08:36.245707+03:00"
+    },
+    {
+      "term": "Patent Tazminatı",
+      "explanation": "Bir buluşun veya teknolojinin yasal kullanım hakkına (patente) sahip olan kişinin izni olmadan bu teknolojiyi ticari amaçla kullananlara karşı mahkeme yoluyla talep edilen maddi tazminat bedelidir.",
+      "date_learned": "2026-10-14T20:08:36.245707+03:00"
+    },
+    {
+      "term": "Tedarik Zinciri",
+      "explanation": "Bir ürünün hammadde halinden, üretilip son tüketiciye ulaşıncaya kadar geçirdiği tüm üretim, nakliye, depolama ve dağıtım süreçlerinin tamamıdır.",
+      "date_learned": "2026-10-14T20:08:36.245707+03:00"
     }
   ]
 }
