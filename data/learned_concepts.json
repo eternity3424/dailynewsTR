@@ -179,6 +179,16 @@
       "term": "Tedarik Zinciri",
       "explanation": "Bir ürünün hammadde halinden tüketiciye ulaşıncaya kadar geçirdiği üretim, taşıma ve dağıtım süreçlerinin tamamıdır. Hürmüz Boğazı gibi stratejik noktalar tıkanırsa bu zincir aksar ve ürün fiyatları yükselir.",
       "date_learned": "2026-10-14T20:15:47.866125+03:00"
+    },
+    {
+      "term": "Brüt Kâr Marjı",
+      "explanation": "Bir şirketin sattığı mal veya hizmetin maliyetini düştükten sonra elde ettiği kârın, toplam satış gelirine oranını gösteren yüzdesel ifadedir. Şirketin üretim verimliliğini anlamak için kullanılır.",
+      "date_learned": "2026-10-15T13:14:09.180560+03:00"
+    },
+    {
+      "term": "Enflasyonist Baskı",
+      "explanation": "Fiyatlar genel seviyesinde sürekli bir artış eğiliminin (enflasyonun) ortaya çıkmasına veya artmasına neden olan ekonomik güçlerin ve maliyet artışlarının bütünüdür.",
+      "date_learned": "2026-10-15T13:14:09.180560+03:00"
     }
   ]
 }

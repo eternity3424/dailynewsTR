@@ -404,6 +404,33 @@
         }
       ],
       "date": "2026-10-14T20:15:49.601647+03:00"
+    },
+    {
+      "questions": [
+        {
+          "question": "Bir şirketin sattığı mal veya hizmetin üretim veya alım maliyetini düştükten sonra elde ettiği kârın, toplam satış gelirine oranını gösteren ve üretim verimliliğini anlamak için kullanılan yüzdesel ifade aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Cari Açık",
+            "B) Brüt Kâr Marjı",
+            "C) Likidite",
+            "D) Enflasyonist Baskı"
+          ],
+          "correct_answer": "B) Brüt Kâr Marjı",
+          "explanation": "Brüt kâr marjı, bir şirketin mal veya hizmet maliyetini çıkardıktan sonra satış gelirine oranla ne kadar kâr elde ettiğini gösteren yüzdesel bir orandır."
+        },
+        {
+          "question": "Fiyatlar genel seviyesinde sürekli bir artış eğiliminin ortaya çıkmasına ya da artmasına neden olan ekonomik güçlerin ve maliyet artışlarının bütünü aşağıdakilerden hangisiyle ifade edilir?",
+          "options": [
+            "A) Tahvil",
+            "B) Patent Tazminatı",
+            "C) Enflasyonist Baskı",
+            "D) Tedarik Zinciri"
+          ],
+          "correct_answer": "C) Enflasyonist Baskı",
+          "explanation": "Enflasyonist baskı, fiyatların genel seviyesinde sürekli bir artış eğilimini tetikleyen ekonomik güçlerin ve maliyet artışlarının tümünü ifade eder."
+        }
+      ],
+      "date": "2026-10-15T13:14:11.648324+03:00"
     }
   ]
 }
