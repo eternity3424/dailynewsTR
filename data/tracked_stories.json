@@ -36,7 +36,7 @@
         },
         {
           "date": "2026-10-11",
-          "summary": "ABD Merkez Kuvvetler Komutanlığı (CENTCOM), İran''a yönelik ablukayı ihlal etmeye çalıştığı gerekçesiyle Umman Körfezi'ndeki ticari kargo gemisini etkisiz hale getirdiğini duyururken; Dışişleri Bakanlığı Husilerin Riyad'daki havalimanına saldırısını en güçlü şekilde kınadı."
+          "summary": "ABD Merkez Kuvvetler Komutanlığı (CENTCOM), İran'a yönelik ablukayı ihlal etmeye çalıştığı gerekçesiyle Umman Körfezi'ndeki ticari kargo gemisini etkisiz hale getirdiğini duyururken; Dışişleri Bakanlığı Husilerin Riyad'daki havalimanına saldırısını en güçlü şekilde kınadı."
         },
         {
           "date": "2026-10-12",
@@ -53,6 +53,10 @@
         {
           "date": "2026-10-14",
           "summary": "İran'ın başkenti Tahran'dan İstanbul'a giden İran Airtour Havayollarına ait Airbus A320 tipi yolcu uçağının teknik arıza nedeniyle Tebriz Uluslararası Havalimanı'na acil iniş yaptığı bildirildi."
+        },
+        {
+          "date": "2026-10-15",
+          "summary": "İran Donanması, Hürmüz Boğazı'nın doğusunda takip sistemini kapatarak yol alan bir petrol tankerinde yangın çıktığını bildirdi."
         }
       ]
     },
@@ -97,6 +101,7 @@
       ]
     },
     {
+      "id": "f96843d5-edca-4c33-a60c-ada3a73a35df",
       "title": "İstanbul'da Tarihi Yağış ve Sel Felaketi",
       "context": "İstanbul ve çevresinde etkili olan şiddetli sağanak yağışlar sonucu tarihi afet seviyesinde su baskınları yaşanmış, baraj doluluk oranları ani değişim göstermiş ve eğitime ara verilerek acil afet yardımı süreçleri devreye sokulmuştur.",
       "status": "active",
@@ -104,9 +109,12 @@
         {
           "date": "2026-10-15",
           "summary": "İstanbul'da tek bir günde yıllık yağışın üçte biri düşerek tarihi sel ve su baskınlarına yol açtı; baraj doluluk oranları %45.22'ye yükselirken Kocaeli'de eğitime ara verildi ve bakanlık acil afet yardımı aktarılacağını duyurdu."
+        },
+        {
+          "date": "2026-10-15",
+          "summary": "Çevre, Şehircilik ve İklim Değişikliği Bakanı Murat Kurum, sel felaketinin yaşandığı İstanbul'da yerinde incelemelerde bulunacağını açıkladı."
         }
-      ],
-      "id": "f96843d5-edca-4c33-a60c-ada3a73a35df"
+      ]
     }
   ]
 }

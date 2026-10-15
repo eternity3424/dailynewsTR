@@ -431,6 +431,33 @@
         }
       ],
       "date": "2026-10-15T13:14:11.648324+03:00"
+    },
+    {
+      "questions": [
+        {
+          "question": "Ekonomik kriz, savaş veya yüksek enflasyon gibi belirsizlik dönemlerinde yatırımcıların parasının değerini korumak için altın, döviz veya devlet tahvili gibi düşük riskli varlıklara yönelmesi durumu hangi kavramla ifade edilir?",
+          "options": [
+            "A) Güvenli Liman (Safe Haven)",
+            "B) Brüt Kâr Marjı",
+            "C) Enflasyonist Baskı",
+            "D) Patent Tazminatı"
+          ],
+          "correct_answer": "A) Güvenli Liman (Safe Haven)",
+          "explanation": "Güvenli liman, piyasalardaki belirsizlik ve kriz dönemlerinde yatırımcıların sermayelerini korumak amacıyla sığındıkları düşük riskli varlıkları tanımlar."
+        },
+        {
+          "question": "Bir ülkenin veya küresel piyasaların enerji, gıda veya hammadde gibi kritik kaynaklara kesintisiz ve makul fiyatlarla ulaşabilme imkânı aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Arz Güvenliği",
+            "B) Tedarik Zinciri",
+            "C) Likidite",
+            "D) Tahvil"
+          ],
+          "correct_answer": "A) Arz Güvenliği",
+          "explanation": "Arz güvenliği, hayati öneme sahip kaynakların (enerji, gıda vb.) temininde aksama yaşanmaması ve sürdürülebilir olması durumunu ifade eder."
+        }
+      ],
+      "date": "2026-10-15T20:08:29.254087+03:00"
     }
   ]
 }
