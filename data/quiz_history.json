@@ -485,6 +485,33 @@
         }
       ],
       "date": "2026-10-16T11:58:29.517165+03:00"
+    },
+    {
+      "questions": [
+        {
+          "question": "Çalışanların emeklilik döneminde ek bir gelir elde ederek refah seviyelerini korumasını amaçlayan, devlet katkısıyla desteklenen gönüllü uzun vadeli tasarruf ve yatırım sistemi aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Tahvil",
+            "B) Bireysel Emeklilik Sistemi (BES)",
+            "C) Cari Açık",
+            "D) Merkezi Yönetim Bütçesi"
+          ],
+          "correct_answer": "B) Bireysel Emeklilik Sistemi (BES)",
+          "explanation": "Bireysel Emeklilik Sistemi (BES), çalışanların emeklilikte ek gelir elde etmesini sağlayan ve devlet katkısıyla desteklenen gönüllü bir tasarruf sistemidir."
+        },
+        {
+          "question": "Büyük miktardaki dijital verinin güvenli bir şekilde depolandığı, işlendiği ve sunulduğu yüksek kapasiteli bilgisayar sistemleri ile sunucuların barındırıldığı tesis aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Veri Merkezi",
+            "B) Güvenli Liman (Safe Haven)",
+            "C) Likidite",
+            "D) Brüt Kâr Marjı"
+          ],
+          "correct_answer": "A) Veri Merkezi",
+          "explanation": "Veri merkezi, çok büyük miktardaki dijital verilerin toplandığı, saklandığı ve işlendiği yüksek kapasiteli sunucu sistemlerinin bulunduğu tesislerdir."
+        }
+      ],
+      "date": "2026-10-16T20:08:50.870863+03:00"
     }
   ]
 }
