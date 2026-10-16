@@ -458,6 +458,33 @@
         }
       ],
       "date": "2026-10-15T20:08:29.254087+03:00"
+    },
+    {
+      "questions": [
+        {
+          "question": "Bir ülkenin dış ticaret ve hizmetler dengesinde, dışarıya yaptığı ödemelerin dışarıdan aldığı gelirlerden fazla olması durumunu ifade eden kavram aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Cari Açık",
+            "B) Tahvil",
+            "C) Likidite",
+            "D) Arz Güvenliği"
+          ],
+          "correct_answer": "A) Cari Açık",
+          "explanation": "Cari açık, bir ülkenin dünyaya sattığı mal ve hizmetlerden elde ettiği gelirlerin, dışarıdan aldığı malların bedelini karşılayamaması ve ödemelerin gelirlerden fazla olması halidir."
+        },
+        {
+          "question": "Devletlerin veya şirketlerin, borç para bulmak amacıyla ihraç ettiği ve yatırımcıya belirli bir vade sonunda ana para artı sabit veya değişken faiz ödemesi vaat eden borç senedi aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Patent Tazminatı",
+            "B) Tahvil",
+            "C) Brüt Kâr Marjı",
+            "D) Güvenli Liman (Safe Haven)"
+          ],
+          "correct_answer": "B) Tahvil",
+          "explanation": "Tahvil, devletlerin ya da büyük şirketlerin borçlanmak için çıkardığı, vade sonunda yatırımcısına ana para ve faiz getirisi ödemesi taahhüt eden borç senedidir."
+        }
+      ],
+      "date": "2026-10-16T11:58:29.517165+03:00"
     }
   ]
 }
