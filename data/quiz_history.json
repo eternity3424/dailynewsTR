@@ -512,6 +512,33 @@
         }
       ],
       "date": "2026-10-16T20:08:50.870863+03:00"
+    },
+    {
+      "questions": [
+        {
+          "question": "Ödemeler dengesinde kaynağı tam olarak belirlenemeyen veya ölçülemeyen döviz hareketlerini gösteren, ev bütçesindeki 'nereden geldiği veya nereye gittiği unutulan paralar' mantığına benzeyen denkleştirici kalem aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Cari Açık",
+            "B) Net Hata ve Noksan",
+            "C) Tahvil",
+            "D) Likidite"
+          ],
+          "correct_answer": "B) Net Hata ve Noksan",
+          "explanation": "Net hata ve noksan, ödemeler dengesinde kaynağı tam olarak tespit edilemeyen döviz giriş ve çıkışlarını gösteren denkleştirici kalemdir."
+        },
+        {
+          "question": "Devletin bir yıl boyunca yapacağı tüm kamu harcamalarını ve toplayacağı vergi gelirlerini gösteren resmi ve yasal mali plan aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Merkezi Yönetim Bütçesi",
+            "B) Bireysel Emeklilik Sistemi (BES)",
+            "C) Veri Merkezi",
+            "D) Güvenli Liman"
+          ],
+          "correct_answer": "A) Merkezi Yönetim Bütçesi",
+          "explanation": "Merkezi yönetim bütçesi, devletin yıllık gelir ve gider tahminlerini içeren resmi mali plandır."
+        }
+      ],
+      "date": "2026-10-18T20:32:34.368555+03:00"
     }
   ]
 }
