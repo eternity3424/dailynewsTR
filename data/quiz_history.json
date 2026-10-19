@@ -566,6 +566,33 @@
         }
       ],
       "date": "2026-10-19T14:04:06.368299+03:00"
+    },
+    {
+      "questions": [
+        {
+          "question": "Devletin veya mahkemelerin, mali ya da hukuki sorunlar yaşayan ve yönetimi zora giren şirketlerin başına atadığı yasal yöneticiyi ifade eden kavram aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Kayyum",
+            "B) Tahvil",
+            "C) Likidite",
+            "D) Cari Açık"
+          ],
+          "correct_answer": "A) Kayyum",
+          "explanation": "Kayyum, mali veya hukuki sıkıntıdaki şirketlerin borçlarını ödemesi ve iflas etmeden faaliyetlerini sürdürmesi için atanan geçici yasal yöneticidir."
+        },
+        {
+          "question": "Bir şirketin borsada işlem gören kendi hisse senetlerini, şirket kasasındaki nakdi kullanarak piyasadan geri satın alması işlemi hangi adla anılır?",
+          "options": [
+            "A) Pay Geri Alım Programı",
+            "B) Merkezi Yönetim Bütçesi",
+            "C) Net Hata ve Noksan",
+            "D) Bireysel Emeklilik Sistemi"
+          ],
+          "correct_answer": "A) Pay Geri Alım Programı",
+          "explanation": "Pay geri alım programı, şirketlerin kendi hisselerine olan güveni artırmak ve aşırı düşüşleri engellemek için kendi hisselerini piyasadan satın almasıdır."
+        }
+      ],
+      "date": "2026-10-19T20:08:06.564572+03:00"
     }
   ]
 }

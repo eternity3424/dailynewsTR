@@ -249,6 +249,16 @@
       "term": "Tahvil",
       "explanation": "Devletlerin veya şirketlerin borçlanmak amacıyla ihraç ettiği, yatırımcısına belirli bir vade sonunda ana para ve faiz ödemesi vaat eden borç senedidir.",
       "date_learned": "2026-10-19T14:04:03.845969+03:00"
+    },
+    {
+      "term": "Kayyum",
+      "explanation": "Devletin veya mahkemelerin, mali ya da hukuki sorunlar yaşayan, yönetimi zora giren şirketlerin veya varlıkların başına atadığı yasal yöneticidir. Şirketin borçlarını ödemesi ve iflas etmeden faaliyetlerini sürdürmesi için bir nevi geçici koruma kalkanıdır.",
+      "date_learned": "2026-10-19T20:08:04.983322+03:00"
+    },
+    {
+      "term": "Pay Geri Alım Programı",
+      "explanation": "Bir şirketin borsada işlem gören kendi hisse senetlerini, şirket kasasındaki nakdi kullanarak piyasadan geri satın almasıdır. Bu işlem genellikle şirketin kendi hisselerine duyduğu güveni artırmak ve hisse fiyatındaki aşırı düşüşleri engellemek için yapılır.",
+      "date_learned": "2026-10-19T20:08:04.983322+03:00"
     }
   ]
 }
