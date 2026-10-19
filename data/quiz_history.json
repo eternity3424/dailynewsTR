@@ -539,6 +539,33 @@
         }
       ],
       "date": "2026-10-18T20:32:34.368555+03:00"
+    },
+    {
+      "questions": [
+        {
+          "question": "Bir varlığın değer kaybetmeden hızla nakit paraya çevrilebilme derecesini ifade eden finansal kavram aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Tahvil",
+            "B) Likidite",
+            "C) Cari Açık",
+            "D) Bireysel Emeklilik Sistemi"
+          ],
+          "correct_answer": "B) Likidite",
+          "explanation": "Likidite, bir varlığın değerinden kaybetmeden ne kadar kolay ve hızlı bir şekilde nakde dönüştürülebileceğini gösterir."
+        },
+        {
+          "question": "Devletin bir yıl boyunca yapacağı tüm harcamaları ve toplayacağı vergi gelirlerini gösteren resmi ve yasal mali plan aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Net Hata ve Noksan",
+            "B) Veri Merkezi",
+            "C) Merkezi Yönetim Bütçesi",
+            "D) Likidite"
+          ],
+          "correct_answer": "C) Merkezi Yönetim Bütçesi",
+          "explanation": "Merkezi yönetim bütçesi, kamu harcamaları ile vergi gelirlerinin yıllık bazda planlandığı yasal ve resmi bir mali plandır."
+        }
+      ],
+      "date": "2026-10-19T14:04:06.368299+03:00"
     }
   ]
 }
