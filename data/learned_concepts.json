@@ -269,6 +269,16 @@
       "term": "Katma Değer",
       "explanation": "Bir hammaddenin işlenerek, üzerine emek ve teknoloji eklenip daha değerli bir ürüne dönüştürülmesi sürecinde yaratılan ekstra ekonomik değerdir.",
       "date_learned": "2026-10-22T12:51:18.594266+03:00"
+    },
+    {
+      "term": "Likidite",
+      "explanation": "Bir varlığın değer kaybetmeden nakit paraya dönüştürülebilme kolaylığıdır. Örneğin, elinizdeki altını ya da hisse senedini anında nakde çevirebiliyorsanız o varlığın likiditesi yüksektir; ancak gayrimenkulü hemen satıp nakit alamadığınız için likiditesi düşüktür.",
+      "date_learned": "2026-10-22T20:09:32.670643+03:00"
+    },
+    {
+      "term": "Enflasyon",
+      "explanation": "Ülkedeki mal ve hizmet fiyatlarının genel düzeyinin sürekli bir artış göstermesi durumudur. Enflasyon yükseldiğinde paranın alım gücü düşer; yani geçen yıl 100 liraya aldığınız bir sepet ürüne bu yıl daha fazla ödemek zorunda kalırsınız.",
+      "date_learned": "2026-10-22T20:09:32.670643+03:00"
     }
   ]
 }
