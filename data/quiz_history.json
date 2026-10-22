@@ -593,6 +593,33 @@
         }
       ],
       "date": "2026-10-19T20:08:06.564572+03:00"
+    },
+    {
+      "questions": [
+        {
+          "question": "Bir ülke sınırları içinde belirli bir süre içinde üretilen tüm nihai mal ve hizmetlerin piyasa değerini gösteren ve ülkenin ekonomik büyüklüğünü ölçmek için kullanılan temel gösterge aşağıdakilerden hangisidir?",
+          "options": [
+            "A) Cari Açık",
+            "B) Gayri Safi Yurt İçi Hasıla (GSYH)",
+            "C) Net Hata ve Noksan",
+            "D) Tahvil"
+          ],
+          "correct_answer": "B) Gayri Safi Yurt İçi Hasıla (GSYH)",
+          "explanation": "Gayri Safi Yurt İçi Hasıla (GSYH), bir ülkenin sınırları içerisinde üretilen tüm nihai mal ve hizmetlerin toplam piyasa değeridir ve ekonomik büyüklüğün en temel ölçütüdür."
+        },
+        {
+          "question": "Bir hammaddenin işlenerek, üzerine emek ve teknoloji eklenip daha değerli bir ürüne dönüştürülmesi sürecinde yaratılan ekstra ekonomik değere ne ad verilir?",
+          "options": [
+            "A) Katma Değer",
+            "B) Kayyum",
+            "C) Likidite",
+            "D) Pay Geri Alım Programı"
+          ],
+          "correct_answer": "A) Katma Değer",
+          "explanation": "Katma değer, bir ürünün üretim aşamalarında emek ve teknoloji ile değerinin artırılması sonucu ortaya çıkan ekstra ekonomik kazanç ve değerdir."
+        }
+      ],
+      "date": "2026-10-22T12:51:20.435988+03:00"
     }
   ]
 }
